@@ -1,0 +1,33 @@
+[core]
+    #editor = code --wait
+	editor = vim
+	preloadindex = true
+	fscache = true
+[user]
+	name = Nicolai Sättler
+	email = n.sattler@dataquint.nl
+[color]
+	ui = auto
+[credential]
+	helper = store
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	create-pull-request = !sh -c 'stash pull-request \\$0 \\$@'
+	d = difftool
+[merge]
+	tool = vimdiff
+[diff]
+	tool = vimdiff
+[http] 
+	sslVersion = tlsv1.2
+[help]
+	autocorrect = 1
+[gc]
+	auto = 256
+[difftool]
+	prompt = false
