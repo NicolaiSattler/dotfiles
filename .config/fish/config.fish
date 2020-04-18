@@ -6,6 +6,7 @@ alias ..='cd ..'
 
 
 set rootdq '/mnt/c/DataQuint'
+set rootdoc '/mnt/c/Users/NicolaiSättler/Documents'
 set rootcs '/mnt/c/Users/NicolaiSättler/Documents/Privé/CodeSquirrel'
 
 alias cleanup='git branch --merged | grep  -v "\\*\\|master\\|develop" | xargs -n 1 git branch -d'

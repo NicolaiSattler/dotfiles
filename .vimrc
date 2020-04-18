@@ -27,6 +27,7 @@ else
   set backup		" keep a backup file (restore to previous version)
   set undofile		" keep an undo file (undo changes after closing)
 endif
+
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -34,7 +35,19 @@ set noundofile
 set nobackup
 set noswapfile
 set incsearch		" do incremental searching
-set nu
+set nu			" line numbering
+
+set foldmethod=indent	" Enabled folding
+set foldlevel=99
+
+" Flag Whitespace
+au BufNewFile, BugRead *.py,*pyw,*.c,*.h,*.cs,*.ts,*.js match BadWhitespace /\s\+$/
+
+" Tab indentation
+au BufNewFile, BufRead *.js,*.ts,*.html,*.py,*.cs
+	\ set tabstop=2
+	\ set softtabstop=2
+	\ set shiftwidth=2
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -106,6 +119,14 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
+
+filetype plugin on
+" plugin pydiction --> code completion for Python
+" https://github.com/rkulla/pydiction.git
+" check website to add more modules to the dictionary..
+let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict' 
+" set menu hight of menu
+let g:pydiction_menu_height = 3
 
 " Add optional packages.
 "
