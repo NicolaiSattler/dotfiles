@@ -28,17 +28,29 @@ else
   set undofile		" keep an undo file (undo changes after closing)
 endif
 
-set history=50		" keep 50 lines of command line history
+set title
+set history=1000	" keep 1000 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
+set showmatch
+set ignorecase 		" case insensitive matching
+set smartcase 		" smart case matching
+set smarttab
+set incsearch		" do incremental searching
 set noundofile
 set nobackup
 set noswapfile
-set incsearch		" do incremental searching
 set nu			" line numbering
 
+" folding:
 set foldmethod=indent	" Enabled folding
-set foldlevel=99
+set foldnestmax=10
+set foldlevel=2
+set nofoldenable
+
+"search
+" set path+=** 	" Search down into subfolders
+set wildmenu 	" Display all matching files when we tab complete
 
 " Flag Whitespace
 au BufNewFile, BugRead *.py,*pyw,*.c,*.h,*.cs,*.ts,*.js match BadWhitespace /\s\+$/
@@ -126,10 +138,30 @@ filetype plugin on
 " check website to add more modules to the dictionary..
 let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict' 
 " set menu hight of menu
+
 let g:pydiction_menu_height = 3
+" plugin vim-markdown --> syntax highlighting for vim
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+" let g:markdown_minlines = 100
+
+"File Browsing
+let g:netrw_banner=0
+" let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+"let g:netrw_list_hide=netrw_gitignore#Hide()
+"let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
 
 " Add optional packages.
 "
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
 packadd matchit
+
+" jumping through files with tags
+" ctrl-] = go to file
+" ctrl-t = return to previous file
+" ctrl-n = autocomplete due to ctags is more complete :) 
+" note: ctrl-p previous in autocomplete list
+" install exuburant-ctags
+command! MakeTags !ctags -R .
