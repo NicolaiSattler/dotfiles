@@ -1,18 +1,19 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2016 Mar 25
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -36,21 +37,23 @@ set showmatch
 set ignorecase 		" case insensitive matching
 set smartcase 		" smart case matching
 set smarttab
+set autoread		" realtime monitor changes:
 set incsearch		" do incremental searching
 set noundofile
-set nobackup
 set noswapfile
 set nu			" line numbering
-
-" folding:
+set relativenumber
 set foldmethod=indent	" Enabled folding
 set foldnestmax=10
 set foldlevel=2
 set nofoldenable
+set guioptions-=r	" disable scrolling
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+" set path+=** 		" Search down into subfolders
+set wildmenu 		" Display all matching files when we tab complete
 
-"search
-" set path+=** 	" Search down into subfolders
-set wildmenu 	" Display all matching files when we tab complete
 
 " Flag Whitespace
 au BufNewFile, BugRead *.py,*pyw,*.c,*.h,*.cs,*.ts,*.js match BadWhitespace /\s\+$/
@@ -131,32 +134,34 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
-
 filetype plugin on
-" plugin pydiction --> code completion for Python
-" https://github.com/rkulla/pydiction.git
-" check website to add more modules to the dictionary..
-let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict' 
-" set menu hight of menu
 
+" Python
+let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict'	" https://github.com/rkulla/pydiction.git
 let g:pydiction_menu_height = 3
-" plugin vim-markdown --> syntax highlighting for vim
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
-" let g:markdown_minlines = 100
+" Markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh'] 	" plugin vim-markdown --> syntax highlighting for vim
+let g:markdown_minlines = 100
 
-"File Browsing
-let g:netrw_banner=0
+let g:netrw_banner=0 
 " let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 "let g:netrw_list_hide=netrw_gitignore#Hide()
 "let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
 
-" Add optional packages.
-"
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
 packadd matchit
+
+"	NERD TREE
+let g:NERDTreeWin = "right"
+let g:NerdTreeWinSize=35
+let NERDTreeShowHidden=0
+let NERDTreeIgnore= ['\.pyc$','__pycache__']
+
+"	AIRLINE
+"let g:airline_theme='simple'
 
 " jumping through files with tags
 " ctrl-] = go to file
