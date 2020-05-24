@@ -1,18 +1,22 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2016 Mar 25
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rkulla/pydiction'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'hdima/python-syntax'
+
+call vundle#end()
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -31,26 +35,37 @@ endif
 set title
 set history=1000	" keep 1000 lines of command line history
 set ruler		" show the cursor position all the time
+set clipboard+=unnamed	" yanked text will go to system clipboard
+set spelllang=en_us
+set mouse=a		" make mouse work properly
 set showcmd		" display incomplete commands
 set showmatch
 set ignorecase 		" case insensitive matching
 set smartcase 		" smart case matching
+set ts=4			" make tabs 4 spaces
 set smarttab
+set autoread		" realtime monitor changes:
 set incsearch		" do incremental searching
 set noundofile
-set nobackup
 set noswapfile
 set nu			" line numbering
-
-" folding:
+set relativenumber
 set foldmethod=indent	" Enabled folding
 set foldnestmax=10
 set foldlevel=2
 set nofoldenable
+set guioptions-=r	" disable scrolling
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set hlsearch
+set path+=./** 		" Search down into subfolders
+set wildmenu 		" Display all matching files when we tab complete
+set background=dark
+set laststatus=2
+colorscheme PaperColor
 
-"search
-" set path+=** 	" Search down into subfolders
-set wildmenu 	" Display all matching files when we tab complete
+syntax on
 
 " Flag Whitespace
 au BufNewFile, BugRead *.py,*pyw,*.c,*.h,*.cs,*.ts,*.js match BadWhitespace /\s\+$/
@@ -71,19 +86,7 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  colo skittles_autumn
-  syntax on
-  set hlsearch
-endif
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -131,37 +134,42 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
-
 filetype plugin on
-" plugin pydiction --> code completion for Python
-" https://github.com/rkulla/pydiction.git
-" check website to add more modules to the dictionary..
-let g:pydiction_location = '~/.vim/plugin/pydiction/complete-dict' 
-" set menu hight of menu
 
+" Python
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'	" https://github.com/rkulla/pydiction.git
 let g:pydiction_menu_height = 3
-" plugin vim-markdown --> syntax highlighting for vim
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
-" let g:markdown_minlines = 100
+" Markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh'] 	" plugin vim-markdown --> syntax highlighting for vim
+let g:markdown_minlines = 100
 
-"File Browsing
-let g:netrw_banner=0
-" let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:netrw_liststyle=3
-"let g:netrw_list_hide=netrw_gitignore#Hide()
-"let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
+let g:netrw_banner=0 
 
-" Add optional packages.
-"
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
 packadd matchit
 
-" jumping through files with tags
+"	NERD TREE
+let g:NERDTreeWin = "right"
+let g:NerdTreeWinSize=35
+let NERDTreeShowHidden=0
+let NERDTreeIgnore= ['\.pyc$','__pycache__']
+
+"	Airline
+let g:airline_theme='papercolor'
+let g:PaperColor_Theme_Options = { 
+	\	'language' : { 
+	\		'python' : {
+	\ 			'hightlight_builitins' : 1 
+	\		} 
+	\	}
+	\ }
+"	Python syntax highlighting
+let python_highlight_all = 1
+
+" Jumping through files with tags
 " ctrl-] = go to file
 " ctrl-t = return to previous file
 " ctrl-n = autocomplete due to ctags is more complete :) 
-" note: ctrl-p previous in autocomplete list
-" install exuburant-ctags
+" note: ctrl-p previous in autocomplete list --> install exuburant-ctags
 command! MakeTags !ctags -R .
