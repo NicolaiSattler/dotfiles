@@ -1,11 +1,12 @@
 [core]
-    #editor = code --wait
 	editor = vim
 	preloadindex = true
 	fscache = true
 [user]
 	name = Nicolai Sättler
-	email = n.sattler@dataquint.nl
+	email = nicolaisattler1990@gmail.com
+[include "gitdir:/mnt/c/DataQuint"]
+    path = /mnt/c/DataQuint/.gitconfig
 [color]
 	ui = auto
 [credential]
