@@ -5,8 +5,8 @@
 [user]
 	name = Nicolai Sättler
 	email = nicolaisattler1990@gmail.com
-[include "gitdir:/mnt/c/DataQuint"]
-    path = /mnt/c/DataQuint/.gitconfig
+[include "gitdir:~/mnt/c/DataQuint/"]
+    path = ~/mnt/c/DataQuint/.gitconfig
 [color]
 	ui = auto
 [credential]
