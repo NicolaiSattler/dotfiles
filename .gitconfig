@@ -2,15 +2,18 @@
 	editor = vim
 	preloadindex = true
 	fscache = true
+	autocrlf = true
+	#sshCommand = "ssh -F ~/.ssh/confg"
 [user]
 	name = Nicolai Sättler
 	email = nicolaisattler1990@gmail.com
 [include "gitdir:~/mnt/c/DataQuint/"]
-    path = ~/mnt/c/DataQuint/.gitconfig
+	#path = ~/mnt/c/DataQuint/.gitconfig
 [color]
 	ui = auto
 [credential]
-	helper = store
+	#helper = store
+	#helper = manager
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -25,7 +28,8 @@
 [diff]
 	tool = vimdiff
 [http] 
-	sslVersion = tlsv1.2
+	sslVersion = sslv3
+	sslVerify = true
 [help]
 	autocorrect = 1
 [gc]

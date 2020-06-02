@@ -14,53 +14,47 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rkulla/pydiction'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'hdima/python-syntax'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 
 call vundle#end()
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  set undofile		" keep an undo file (undo changes after closing)
-endif
-
+set backspace=indent,eol,start 							" allow backspacing over everything in insert mode
 set title
-set history=1000	" keep 1000 lines of command line history
-set ruler		" show the cursor position all the time
-set clipboard+=unnamed	" yanked text will go to system clipboard
+set history=1000														" keep 1000 lines of command line history
+set ruler																		" show the cursor position all the time
+set clipboard+=unnamed											" yanked text will go to system clipboard
 set spelllang=en_us
-set mouse=a		" make mouse work properly
-set showcmd		" display incomplete commands
+set mouse=a																	" make mouse work properly
+set showcmd																	" display incomplete commands
 set showmatch
-set ignorecase 		" case insensitive matching
-set smartcase 		" smart case matching
-set ts=4			" make tabs 4 spaces
+set ignorecase 			" case insensitive matching
+set smartcase 			" smart case matching
+set ts=2						" make tabs 2 spaces
 set smarttab
-set autoread		" realtime monitor changes:
-set incsearch		" do incremental searching
+set autoread				" realtime monitor changes:
+set incsearch				" do incremental searching
 set noundofile
 set noswapfile
-set nu			" line numbering
+set nowritebackup
+set nu								" line numbering
 set relativenumber
 set foldmethod=indent	" Enabled folding
 set foldnestmax=10
 set foldlevel=2
 set nofoldenable
-set guioptions-=r	" disable scrolling
+set guioptions-=r			" disable scrolling
 set guioptions-=R
 set guioptions-=l
 set guioptions-=L
-
 set hlsearch
-set path+=./** 		" Search down into subfolders
-set wildmenu 		" Display all matching files when we tab complete
+set path+=./** 				" Search down into subfolders
+set wildmenu 					" Display all matching files when we tab complete
 set background=dark
 set laststatus=2
 colorscheme PaperColor
@@ -75,12 +69,20 @@ au BufNewFile, BufRead *.js,*.ts,*.html,*.py,*.cs
 	\ set tabstop=2
 	\ set softtabstop=2
 	\ set shiftwidth=2
+au BufNewFile, BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType typescript :set makeprg=tsc
+
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost 	 l* nested lwindow
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" override * to search other files in directory
+map <leader>* :Ggrep --untracked <cword><CR><CR> 
+
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -136,6 +138,7 @@ endif
 
 filetype plugin on
 
+
 " Python
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'	" https://github.com/rkulla/pydiction.git
 let g:pydiction_menu_height = 3
@@ -174,6 +177,16 @@ let g:PaperColor_Theme_Options = {
 	\ }
 "	Python syntax highlighting
 let python_highlight_all = 1
+
+" TypeScript
+let g:typescript_compiler_binary = 'tsc'
+"let g:typescript_compiler_options = '--lib es6'
+let g:typescript_indent_disable = 1 
+
+" fzf
+let g:fzf_preview_window= 'right:60%'
+let g:fzf_buffers_jump=1
+
 
 " Jumping through files with tags
 " ctrl-] = go to file

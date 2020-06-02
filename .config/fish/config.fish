@@ -3,8 +3,6 @@ alias c='clear_screen'
 alias ..='cd ..'
 
 #git
-
-
 set rootdq '/mnt/c/DataQuint'
 set rootdoc '/mnt/c/Users/NicolaiSättler/Documents'
 set rootcs '/mnt/c/Users/NicolaiSättler/Documents/Privé/CodeSquirrel'
@@ -18,3 +16,12 @@ alias dqdirfetch='loop_dir_git_fetch $rootdq'
 alias dqdircheckout='loop_dir_git_checkout $rootdq'
 alias dqdirpush='loop_dir_git_push $rootdq'
 alias dqdirgc='loop_dir_git_gc $rootdq'
+#alias jtags='ctags -R app config lib && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
+
+fish_vi_key_bindings
+
+#powerline
+#installation --> sudo apt isntall fish powerline
+set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
+source /usr/share/powerline/bindings/fish/powerline-setup.fish
+powerline-setup
