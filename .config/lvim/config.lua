@@ -96,38 +96,39 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
-lvim.builtin.dap.active = true
-lvim.builtin.dap.on_config_done = function(dap)
-    dap.adapters.coreclr = {
-        type = "server",
-        command = "netcoredbg",
-        args = { "--interpreter=vscode" }
-    }
-
-    dap.configurations.cs = {
-        {
-            type = "coreclr",
-            name = "launch - netcoredbg",
-            request = "launch",
-            program = function()
-                return vim.fn.input('Path to DLL: ', vim.fn.getcwd() .. 'bin/Debug/', 'file')
-            end
-            --
-            --program = function()
-            --    return vim.fn.input('Path to dll:', vim.fn.getcwd() .. '/bin/Debug/', 'file')
-            --end
-            --program = function()
-            --    local path
-            --    vim.ui.input({ prompt = "Path to executable: ", default = vim.fn.getcwd() .. "/bin/Debug" },
-            --        function(input)
-            --            path = input
-            --        end)
-            --    vim.cmd [[redraw]]
-            --    return path
-            --end,
-        },
-    } --
-end
+-- An attempt to enable netcoredbg debugger with dap.
+lvim.builtin.dap.active = false
+--lvim.builtin.dap.on_config_done = function(dap)
+--    dap.adapters.coreclr = {
+--        type = "server",
+--        command = "netcoredbg",
+--        args = { "--interpreter=vscode" }
+--    }
+--
+--    dap.configurations.cs = {
+--        {
+--            type = "coreclr",
+--            name = "launch - netcoredbg",
+--            request = "launch",
+--            program = function()
+--                return vim.fn.input('Path to DLL: ', vim.fn.getcwd() .. 'bin/Debug/', 'file')
+--            end
+--            --
+--            --program = function()
+--            --    return vim.fn.input('Path to dll:', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+--            --end
+--            --program = function()
+--            --    local path
+--            --    vim.ui.input({ prompt = "Path to executable: ", default = vim.fn.getcwd() .. "/bin/Debug" },
+--            --        function(input)
+--            --            path = input
+--            --        end)
+--            --    vim.cmd [[redraw]]
+--            --    return path
+--            --end,
+--        },
+--    } --
+--end
 
 -- generic LSP settings
 -- -- make sure server will always be installed even if the server is in skipped_servers list

@@ -9,7 +9,7 @@ Install the following command line utilties:
     ```bash
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     ```
-> Change default shell with chsh -s /bin/zsh
+    > Change default shell with chsh -s /bin/zsh
 - zsh_autocomplete
 - exa
 - bat
