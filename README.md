@@ -1,7 +1,5 @@
-#Macos dotfiles
-
-##dependencies
-Make sure to have [brew](https://docs.brew.sh) installed as package manager.
+# MacOS dotfiles
+_Make sure to have [brew](https://docs.brew.sh) installed as package manager._
 
 Install the following command line utilties:
 - zsh
