@@ -8,7 +8,7 @@ bindkey -v                                              # enable vi mode
 
 plugins=(git z fzf)
 
-ZSH_THEME="dpoggi"
+ZSH_THEME="wezm+" # set by `omz`
 # ENABLE_CORRECTION="true"
 
 # FZF
@@ -17,6 +17,8 @@ export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-ran
 export FZF_COMPLETION_OPTS='--border --info=inline'
 
 source $ZSH/oh-my-zsh.sh
+# https://github.com/zsh-users/zsh-autosuggestions 
+source ./.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias ..='cd ..'
 alias ll='exa -alh'
