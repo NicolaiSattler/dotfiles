@@ -1,4 +1,5 @@
-export PATH="/opt/homebrew/bin:$PATH" >> ~/.zshrc       # add brew to pathk
+# add brew and netcoredbg to path
+export PATH="/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc       
 export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
@@ -18,7 +19,7 @@ export FZF_COMPLETION_OPTS='--border --info=inline'
 
 source $ZSH/oh-my-zsh.sh
 # https://github.com/zsh-users/zsh-autosuggestions 
-source ./.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias ..='cd ..'
 alias ll='exa -alh'

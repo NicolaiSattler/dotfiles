@@ -21,3 +21,8 @@ Install the following command line utilties:
     LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
     ```
     > Make sure the Prerequisites are installed! https://www.lunarvim.org/docs/installation 
+- [netcoredbg](https://github.com/Samsung/netcoredbg)
+    - extract the folder in `/usr/local/bin/netcoredbg`
+    - set rights `chmod 744 /usr/local/bin/netcoredbg/*`
+    - remove quaratine label `find /usr/local/bin/netcoredbg/* | xargs xattr -r -d com.apple.quarantine`
+

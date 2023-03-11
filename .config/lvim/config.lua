@@ -28,6 +28,8 @@ vim.api.nvim_create_autocmd(
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["gd"] = require('omnisharp_extended').lsp_definitions()
+lvim.keys.insert_mode["jk"] = "<ESC>"
 -- fix for indicator icon warning
 --lvim.builtin.bufferline.options.indicator = { style = "icon", icon = "▎" }
 --lvim.builtin.bufferline.options.indicator_icon = nil
@@ -96,39 +98,26 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+lvim.builtin.dap.active = true
+
 -- An attempt to enable netcoredbg debugger with dap.
-lvim.builtin.dap.active = false
---lvim.builtin.dap.on_config_done = function(dap)
---    dap.adapters.coreclr = {
---        type = "server",
---        command = "netcoredbg",
---        args = { "--interpreter=vscode" }
---    }
---
---    dap.configurations.cs = {
---        {
---            type = "coreclr",
---            name = "launch - netcoredbg",
---            request = "launch",
---            program = function()
---                return vim.fn.input('Path to DLL: ', vim.fn.getcwd() .. 'bin/Debug/', 'file')
---            end
---            --
---            --program = function()
---            --    return vim.fn.input('Path to dll:', vim.fn.getcwd() .. '/bin/Debug/', 'file')
---            --end
---            --program = function()
---            --    local path
---            --    vim.ui.input({ prompt = "Path to executable: ", default = vim.fn.getcwd() .. "/bin/Debug" },
---            --        function(input)
---            --            path = input
---            --        end)
---            --    vim.cmd [[redraw]]
---            --    return path
---            --end,
---        },
---    } --
---end
+lvim.builtin.dap.on_config_done = function(dap)
+    dap.adapters.coreclr = {
+        type = 'executable',
+        command = '/usr/local/bin/netcoredbg/netcoredbg',
+        args = { '--interpreter=vscode' }
+    }
+    dap.configurations.cs = {
+        {
+            type = "coreclr",
+            name = "launch - netcoredbg",
+            request = "launch",
+            program = function()
+                return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+            end,
+        },
+    }
+end
 
 -- generic LSP settings
 -- -- make sure server will always be installed even if the server is in skipped_servers list
@@ -207,6 +196,8 @@ lvim.builtin.dap.active = false
 -- Additional Plugins
 lvim.plugins = {
     { "Mofiqul/dracula.nvim" },
+    -- { "Hoffs/omnisharp-extended-lsp.nvim" },
+    -- { "puremourning/vimspector" }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -222,3 +213,16 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
+--omsnishsarp extended
+--local omnisharp_bin = "omnisharp"
+--local config = {
+--    handlers = {
+--        ["textDocument/definition"] = require('omnisharp_extended').handler,
+--    },
+--    cmd = { omnisharp_bin },
+--}
+--
+--require 'lspconfig'.omnisharp.setup(config)
+
+--vimspector
