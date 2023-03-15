@@ -1,6 +1,8 @@
 # MacOS dotfiles
 _Make sure to have [brew](https://docs.brew.sh) installed as package manager._
 
+> run `brew bundle` it will install taps and brews
+
 Install the following command line utilties:
 - zsh
     - To install `oh-my-zsh` execute the following command.
