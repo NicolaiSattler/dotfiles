@@ -17,7 +17,6 @@ Library/
 .bash_history
 .cache/
 .cargo/
-.config/
 .cups/
 .docker/
 .dotnet/
