@@ -29,10 +29,6 @@ vim.opt.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = 'unnamedplus'
 
--- Save undo history to make Undotree even more awesome <3
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 vim.opt.scrolloff = 8

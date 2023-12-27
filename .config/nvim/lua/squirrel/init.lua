@@ -5,6 +5,8 @@ require("squirrel.treesitter")
 require("squirrel.whichkey")
 require("squirrel.telescope")
 require("squirrel.cmp")
+require("squirrel.undotree")
+require("squirrel.gitsigns")
 require("squirrel.colors")
 require("squirrel.set")
 
