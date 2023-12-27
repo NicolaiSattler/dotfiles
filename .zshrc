@@ -25,7 +25,7 @@ alias ..='cd ..'
 alias ll='exa -alh'
 alias myip='curl http://ipecho.net/plain; echo'
 alias bathelp='bat --plain --language=help'
-alias vim='~/.local/bin/lvim'
+alias vim='/opt/homebrew/bin/nvim'
 
 gitcleanup() {
     git branch | grep -v "main" | xargs git branch -D
