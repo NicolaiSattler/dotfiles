@@ -1,11 +1,17 @@
 require("squirrel.lazy")
-require("squirrel.whichkey")
 require("squirrel.remap")
-require("squirrel.colors")
+require("squirrel.lsp")
+require("squirrel.treesitter")
+require("squirrel.whichkey")
 require("squirrel.telescope")
+require("squirrel.cmp")
+require("squirrel.colors")
 require("squirrel.set")
 
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {
+    clear = true
+})
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
