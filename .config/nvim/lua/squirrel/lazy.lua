@@ -17,6 +17,7 @@ require('lazy').setup({
   --git
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'lewis6991/gitsigns.nvim',
 
   -- autodetect tabstop and shiftwidth
   'tpope/vim-sleuth',
@@ -36,8 +37,11 @@ require('lazy').setup({
     },
   },
 
+  --debugger
+  'mfussenegger/nvim-dap',
+
+  -- Autocompletion
   {
-    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
@@ -57,7 +61,6 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
-  'lewis6991/gitsigns.nvim',
   {
     'catppuccin/nvim',
     priority = 1000
