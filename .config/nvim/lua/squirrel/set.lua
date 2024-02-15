@@ -27,7 +27,7 @@ vim.opt.smartcase = true
 vim.opt.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
-vim.opt.clipboard = 'unnamedplus'
+--vim.opt.clipboard = 'unnamedplus'
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
