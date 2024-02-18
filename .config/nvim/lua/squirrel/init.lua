@@ -1,8 +1,10 @@
 require("squirrel.lazy")
 require("squirrel.remap")
+require("squirrel.utilities")
 require("squirrel.lsp")
 require("squirrel.treesitter")
 require("squirrel.dap")
+require("squirrel.dapui")
 require("squirrel.whichkey")
 require("squirrel.telescope")
 require("squirrel.luasnip")
@@ -11,15 +13,3 @@ require("squirrel.undotree")
 require("squirrel.gitsigns")
 require("squirrel.colors")
 require("squirrel.set")
-
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {
-    clear = true
-})
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})

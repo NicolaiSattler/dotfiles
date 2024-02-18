@@ -13,6 +13,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  --vscode
+  {
+    'vscode-neovim/vscode-multi-cursor.nvim',
+    event = 'VeryLazy',
+    cond = not not vim.g.vscode,
+    opts = {},
+  },
 
   --git
   'tpope/vim-fugitive',
@@ -38,7 +45,12 @@ require('lazy').setup({
   },
 
   --debugger
-  'mfussenegger/nvim-dap',
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = {
+      'mfussenegger/nvim-dap'
+    }
+  },
 
   -- Autocompletion
   {
