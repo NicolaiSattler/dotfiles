@@ -26,6 +26,7 @@ vim.opt.smartcase = true
 -- Enable mouse mode
 vim.opt.mouse = 'a'
 
+vim.opt.swapfile = false
 -- Sync clipboard between OS and Neovim.
 --vim.opt.clipboard = 'unnamedplus'
 
