@@ -3,7 +3,6 @@ export PATH="/opt/homebrew/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbr
 Export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
-
 zstyle ':omz:update' mode reminder                      # ow my zsh update: remind me to update
 bindkey -v                                              # enable vi mode
 
