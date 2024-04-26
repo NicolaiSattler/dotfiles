@@ -3,7 +3,6 @@ vim.g.maplocalleader = ' '
 
 vim.keymap.set('i', 'jk', '<Esc>')
 
-vim.keymap.set('i', 'Y', 'Vy')
 vim.keymap.set('n', 'Y', 'Vy')
 
 -- open netrw
@@ -29,3 +28,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+vim.api.nvim_set_keymap("n", "W,", ":vertical resize -10<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "W.", ":vertical resize +10<CR>", {noremap=true})

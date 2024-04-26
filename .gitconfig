@@ -2,7 +2,7 @@
 	editor = nvim
 	preloadindex = true
 	fscache = true
-	autocrlf = false
+	autocrlf = input
 
 [user]
 	name = Nicolai Sattler

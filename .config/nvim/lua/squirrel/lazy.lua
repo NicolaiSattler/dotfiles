@@ -39,6 +39,7 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'Decodetalkers/csharpls-extended-lsp.nvim',
 
       -- Useful status updates for LSP
       { 'j-hui/fidget.nvim', opts = {} },
@@ -60,21 +61,28 @@ require('lazy').setup({
   -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
+
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
 
       -- Adds LSP completion capabilities
+      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-path',
+      'hrsh7th/vim-vsnip',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
   },
   -- Undotree
-  'mbbill/undotree',
+  {
+    "jiaoshijie/undotree",
+    dependencies = "nvim-lua/plenary.nvim"
+  },
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },

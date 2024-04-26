@@ -5,6 +5,8 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+vim.opt.shortmess = vim.opt.shortmess + { c = true }
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -12,7 +14,7 @@ cmp.setup {
     end,
   },
   completion = {
-    completeopt = 'menu,menuone,noinsert',
+    completeopt = 'menu,menuone,noinsert,preview',
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -44,8 +46,18 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
     { name = 'path' },
-  },
+    { name = 'nvim_lsp', keyword_length = 1 },
+    { name = 'nvim_lsp_signature_help'},
+    { name = 'nvim_lua', keyword_length = 2 },
+    { name = 'buffer', keyword_length = 2 },
+    { name = 'vsnip', keyword_length = 2 },
+    { name = 'luasnip' }
+  }
+}
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require('lspconfig').clangd.setup {
+  capabilities = capabilities
 }
