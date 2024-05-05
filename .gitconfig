@@ -3,6 +3,14 @@
 	preloadindex = true
 	fscache = true
 	autocrlf = input
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true # use n and N to move between diff sections
+	side-by-side = true
 
 [user]
 	name = Nicolai Sattler
@@ -11,18 +19,22 @@
 [gc]
 	auto = 256
 
+[rerere]
+	enabled = true
+
 [mergetool "nvim"]
 	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 
 [merge]
 	tool = nvim
+	conflictstyle = diff3
 
 [mergetool]
 	prompt = false
 
 [diff]
 	tool = nvim
-
+	colorMoved = default
 
 [difftool]
 	prompt = false

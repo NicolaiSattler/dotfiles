@@ -1,6 +1,5 @@
-# dotfiles
-_Make sure to have [brew](https://docs.brew.sh) installed as package manager._
 
+_Make sure to have [brew](https://docs.brew.sh) installed as package manager._
 
 > run `brew bundle` it will install taps and brews
 
@@ -19,8 +18,12 @@ Install the following command line utilties:
 - tree
 - ripgrep
 - neovim
+
+# dotfiles
+
+for debugging download:
+
 - [netcoredbg](https://github.com/Samsung/netcoredbg)
     - extract the folder in `/usr/local/bin/netcoredbg`
     - set rights `chmod 744 /usr/local/bin/netcoredbg/*`
     - remove quaratine label `find /usr/local/bin/netcoredbg/* | xargs xattr -r -d com.apple.quarantine`
-
