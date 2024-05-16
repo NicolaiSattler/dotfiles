@@ -23,7 +23,7 @@ require('lazy').setup({
   },
 
   -- center content
-  'smithbm2316/centerpad.nvim',
+  --'smithbm2316/centerpad.nvim',
 
   --git
   'tpope/vim-fugitive',
@@ -76,6 +76,8 @@ require('lazy').setup({
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+      -- icons
+      'onsails/lspkind.nvim'
     },
   },
   -- Undotree

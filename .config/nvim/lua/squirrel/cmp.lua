@@ -1,6 +1,7 @@
 --autocompletions + snippets
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require 'lspkind'
 
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
@@ -8,6 +9,14 @@ luasnip.config.setup {}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 cmp.setup {
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50,
+      ellipsis_char = '...',
+      show_labelDetails = true,
+    })
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
