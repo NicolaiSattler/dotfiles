@@ -32,8 +32,8 @@ alias gp="git push origin HEAD"
 alias gpu="git pull origin"
 alias gs="git status"
 alias glog="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit | bat -l gitlog"
-alias gdiff="git diff"
-alias gdiffc="git diff --cached"
+alias gd="git diff"
+alias gdc="git diff --cached"
 alias gco="git checkout"
 alias gb='git branch -a | fzf-tmux | xargs git switch'
 alias gba='git branch -a'

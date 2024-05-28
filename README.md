@@ -20,6 +20,13 @@ Install the following command line utilties:
 - neovim
 
 # dotfiles
+To trust dev-cert on linux run
+
+```bash
+dotnet tool update -g linux-dev-certs
+dotnet linux-dev-certs install
+
+```
 
 for debugging download:
 

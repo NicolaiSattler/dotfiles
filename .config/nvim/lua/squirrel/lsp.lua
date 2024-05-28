@@ -30,6 +30,7 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
+
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
@@ -73,3 +74,7 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+-- change filetype for razor based files
+vim.api.nvim_command([[autocmd BufNewfile, BufRead *.cshtml set filetype=html.cshtml.razor]])
+vim.api.nvim_command([[autocmd BufNewfile, BufRead *.razor set filetype=html.cshtml.razor]])

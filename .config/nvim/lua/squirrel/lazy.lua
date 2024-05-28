@@ -32,7 +32,7 @@ require('lazy').setup({
 
   -- autodetect tabstop and shiftwidth
   'tpope/vim-sleuth',
-
+  -- lsp
   {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -120,7 +120,13 @@ require('lazy').setup({
       },
     },
   },
-
+  {
+      'windwp/nvim-autopairs',
+      event = "InsertEnter",
+      config = true
+      -- use opts = {} for passing setup options
+      -- this is equalent to setup({}) function
+  },
   {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -128,4 +134,6 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+
+  'jlcrochet/vim-razor'
 }, {})

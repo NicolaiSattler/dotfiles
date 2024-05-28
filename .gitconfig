@@ -4,6 +4,7 @@
 	fscache = true
 	autocrlf = input
 	pager = delta
+	safecrlf = true
 
 [interactive]
 	diffFilter = delta --color-only
