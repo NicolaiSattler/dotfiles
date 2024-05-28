@@ -27,10 +27,12 @@ dotnet tool update -g linux-dev-certs
 dotnet linux-dev-certs install
 
 ```
+# Requirements
+Developing in c#:
+- [dotnet 8 sdk](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.300-macos-arm64-installer)
 
-for debugging download:
-
-- [netcoredbg](https://github.com/Samsung/netcoredbg)
+- For debugging download:
+    - Download [netcoredbg](https://github.com/Samsung/netcoredbg)
     - extract the folder in `/usr/local/bin/netcoredbg`
     - set rights `chmod 744 /usr/local/bin/netcoredbg/*`
     - remove quaratine label `find /usr/local/bin/netcoredbg/* | xargs xattr -r -d com.apple.quarantine`

@@ -48,6 +48,13 @@ local servers = {
       diagnostics = { disable = { 'missing-fields' } },
     },
   },
+  cssls = {},
+  html = {},
+  csharpier = {},
+  csharp_ls = {},
+  tsserver = {},
+  jsonls = {},
+  yamlls = {}
 }
 
 -- Setup neovim lua configuration
