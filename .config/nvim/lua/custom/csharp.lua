@@ -15,6 +15,13 @@ ls.add_snippets("all", {
 })
 
 ls.add_snippets("csharp", {
-
-        --todo
+	s("testm", {
+		t("[TestMethod]"),
+		t("\npublic void "),i(1, "function name"), t("()"),
+		t("\n{"),
+		t("\n\t//Arrange"),
+		t("\n\t//Act"),
+		t("\n\t//Assert"),
+		t("\n}")
+	})
 })

@@ -50,7 +50,6 @@ local servers = {
   },
   cssls = {},
   html = {},
-  csharpier = {},
   csharp_ls = {},
   tsserver = {},
   jsonls = {},
