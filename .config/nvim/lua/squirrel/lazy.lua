@@ -14,17 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  --vscode
-  {
-    'vscode-neovim/vscode-multi-cursor.nvim',
-    event = 'VeryLazy',
-    cond = not not vim.g.vscode,
-    opts = {},
-  },
-
-  -- center content
-  --'smithbm2316/centerpad.nvim',
-
   --git
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -48,7 +37,32 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-
+  -- noice - pretty commands :o 
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+  --trouble - pretty lists :)
+  {
+    "folke/trouble.nvim",
+    opts = {},
+      cmd = "Trouble",
+  },
+  -- workspace diagnosics
+  {
+    "artemave/workspace-diagnostics.nvim"
+  },
   --debugger
   {
     'rcarriga/nvim-dap-ui',
