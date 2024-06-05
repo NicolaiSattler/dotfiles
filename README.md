@@ -18,8 +18,17 @@ Install the following command line utilties:
 - tree
 - ripgrep
 - neovim
+- stow
 
 # dotfiles
+Initialization:
+
+```bash
+cd dotfiles
+stow .
+```
+> `stow` will create a symlink in the root folder.
+
 To trust dev-cert on linux run
 
 ```bash
