@@ -8,6 +8,8 @@ luasnip.config.setup {}
 
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
 cmp.setup {
   formatting = {
     format = lspkind.cmp_format({
@@ -62,8 +64,13 @@ cmp.setup {
     { name = 'buffer', keyword_length = 2 },
     { name = 'vsnip', keyword_length = 2 },
     { name = 'luasnip' }
-  }
+  },
 }
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
   loadfile(ft_path)()
