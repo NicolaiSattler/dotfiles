@@ -4,7 +4,7 @@ require('telescope').setup {
   defaults = {
     mappings = {
       i = {
-        ['<C-q>'] = open_with_trouble,
+        ['<C-t>'] = open_with_trouble,
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },

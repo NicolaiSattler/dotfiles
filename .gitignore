@@ -5,6 +5,7 @@
 .zprofile
 .*history
 .*hist
+SpecFlow*
 .sqlite*
 .zcompdump*
 .DS_Store
