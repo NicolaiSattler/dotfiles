@@ -1,5 +1,8 @@
 -- Language Server Protocol configuration
 local on_attach = function(client, bufnr)
+
+  require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
