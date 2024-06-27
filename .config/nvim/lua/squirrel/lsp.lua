@@ -1,6 +1,8 @@
 -- Language Server Protocol configuration
 local on_attach = function(client, bufnr)
 
+  --disable inline buffer errors
+  vim.diagnostic.config({virtual_text = false})
   require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
   local nmap = function(keys, func, desc)
@@ -35,7 +37,7 @@ local on_attach = function(client, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
+--  nmap('<leader>th', vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})), '[t]oggle inlay [hint]')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -86,6 +88,12 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 -- change filetype for razor based files
 vim.api.nvim_command([[autocmd BufNewfile, BufRead *.cshtml set filetype=html.cshtml.razor]])

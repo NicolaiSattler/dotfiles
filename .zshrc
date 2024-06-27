@@ -8,6 +8,7 @@ zstyle ':omz:update' mode reminder                      # ow my zsh update: remi
 
 bindkey -v                                              # enable vi mode
 bindkey jj vi-cmd-mode
+bindkey '^ ' autosuggest-execute
 
 plugins=(git z fzf vi-mode)
 
