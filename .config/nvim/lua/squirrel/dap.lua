@@ -83,6 +83,7 @@ vim.keymap.set({'n', 'v'}, '<Leader>dh', function() require('dap.ui.widgets').ho
 vim.keymap.set({'n', 'v'}, '<Leader>dp', function() require('dap.ui.widgets').preview() end, { desc = '[d]ap [p]review'})
 vim.keymap.set('n', '<Leader>df', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames) end, { desc = '[d]ap focus [f]rames'})
 vim.keymap.set('n', '<Leader>ds', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes) end, { desc = '[d]ap focus [s]copes'})
+vim.api.nvim_set_keymap('n', '<C-b>', ':lua vim.g.dotnet_build_project()<CR>', { noremap = true, silent = true })
 
 vim.g['dap_DapBreakpoint_sign'] = vim.g.gsign(' ', '->')
 vim.fn.sign_define('DapBreakpoint', { text=vim.g.gsign(' ', 'B'), texthl='DapBreakpoint', linehl='DapBreakpointLine', numhl='DapBreakpoint' })
