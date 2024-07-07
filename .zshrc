@@ -31,15 +31,14 @@ alias gc="git commit -m"
 alias gca="git commit -a -m"
 alias gp="git push origin HEAD"
 alias gpu="git pull origin"
+alias gf="git fetch"
 alias gs="git status"
 alias gl="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit | bat -l gitlog"
-#This works make an alias? 
-#git log --graph --topo-order --abbrev-commit --pretty=format:"%h - %s (%ar) <%an>" | fzf-tmux | awk '{print $2}' | xargs git show 
 alias gls='git log --graph --topo-order --abbrev-commit --pretty=format:"%h - %s (%ar) <%an>" | fzf-tmux | awk '"'"'{print $1}'"'"' | xargs git show'
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gco="git checkout"
-alias gb='git branch -a | fzf-tmux | xargs git switch'
+alias gb='branch=$(git branch -a | fzf-tmux | xargs echo -n) && [[ $branch == origin/* ]] && git switch ${branch#origin/} || git switch $branch'
 alias gba='git branch -a'
 alias gadd='git add'
 alias ga='git add -p'
