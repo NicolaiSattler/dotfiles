@@ -158,9 +158,6 @@ require('lazy').setup({
       "nvim-lua/plenary.nvim",
     }
   },
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -174,6 +171,15 @@ require('lazy').setup({
         end,
       },
     },
+  },
+  {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" }
+  },
+  -- "gc" to comment visual regions/lines
+  { 
+    'numToStr/Comment.nvim', opts = {}
   },
   {
       'windwp/nvim-autopairs',
