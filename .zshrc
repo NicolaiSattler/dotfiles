@@ -1,5 +1,5 @@
 # add brew and netcoredbg to path
-export PATH="~/.dotnet/tools:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
+export PATH="~/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
 export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
@@ -18,6 +18,7 @@ ZSH_THEME="wezm+" # set by `omz`
 source $ZSH/oh-my-zsh.sh
 # https://github.com/zsh-users/zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.cargo/env
 
 alias ..='cd ..'
 alias ll='eza -alh --icons --git'
@@ -104,9 +105,7 @@ _fzf_comprun() {
 eval "$(zoxide init zsh)"
 
 # Add ssh-keys
-if [ -z "SSH_AUTH_SOCK" ] ; then
-  eval `keychain --eval --agents ssh id_rsa`
-fi
+eval `keychain --eval --agents ssh id_rsa`
 # eval `ssh-agent -s`
 # ssh-add
 # export PATH=$HOME/.local/bin:$PATH
