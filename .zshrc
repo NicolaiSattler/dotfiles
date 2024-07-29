@@ -44,14 +44,22 @@ alias gadd='git add'
 alias ga='git add -p'
 alias gcoall='git checkout -- .'
 
-gitcleanup() {
-    git branch | grep -v "main" | xargs git branch -D
-}
-gitdiff() {
-    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+function vw() {
+  if [ -z "$1" ]; then
+    echo "Usage: rgnvim <search-pattern>"
+    return 1
+  fi
+  git ls-files | xargs rg -n -i "$1" |
+  fzf-tmux -p --preview "rg --pretty --context 5 '$1' {1}" --preview-window=up:60%:wrap |
+  awk -F: '{print $1}' |
+  xargs -r nvim
 }
 
-help() {
+function gitcleanup() {
+    git branch | grep -v "main" | xargs git branch -D
+}
+
+function help() {
     "$@" --help 2>&1 | bathelp
 }
 
