@@ -8,10 +8,16 @@
         "dotnet-ef"
       ]
     },
-    "dotnet-outdated": {
+    "dotnet-outdated-tool": {
       "version": "4.6.4",
       "commands": [
-        "dotnet-outdated"
+        "dotnet-outdated-tool"
+      ]
+    },
+    "dotnet-repl": {
+      "version": "0.1.126",
+      "commands": [
+        "dotnet-repl"
       ]
     }
   }

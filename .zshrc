@@ -1,5 +1,5 @@
 # add brew and netcoredbg to path
-export PATH="/.dotnet/tools:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
+export PATH="~/.dotnet/tools:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
 export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
