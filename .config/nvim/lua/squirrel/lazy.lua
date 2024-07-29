@@ -28,7 +28,6 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-      'Decodetalkers/csharpls-extended-lsp.nvim',
 
       -- Useful status updates for LSP
       { 'j-hui/fidget.nvim', opts = {} },
@@ -178,7 +177,7 @@ require('lazy').setup({
       dependencies = { "nvim-lua/plenary.nvim" }
   },
   -- "gc" to comment visual regions/lines
-  { 
+  {
     'numToStr/Comment.nvim', opts = {}
   },
   {

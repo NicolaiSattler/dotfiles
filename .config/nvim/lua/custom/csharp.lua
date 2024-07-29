@@ -1,7 +1,6 @@
 require("luasnip.session.snippet_collection").clear_snippets "csharp"
 
 local ls = require("luasnip")
-local fmt = require("luasnip.extras.fmt").fmt
 
 local s = ls.snippet
 local i = ls.insert_node

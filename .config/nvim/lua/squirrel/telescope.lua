@@ -1,4 +1,3 @@
-local actions = require("telescope.actions")
 local open_with_trouble = require("trouble.sources.telescope").open
 require('telescope').setup {
   defaults = {
