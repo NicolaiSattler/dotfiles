@@ -24,19 +24,17 @@
 	enabled = true
 
 [mergetool "nvim"]
-	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-
+	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 [merge]
-	tool = nvim
-	conflictstyle = diff3
-
+	tool = nvimdiff
 [mergetool]
 	prompt = false
-
+	keepBackup = false
+[mergetool "nvimdiff"]
+	layout = "LOCAL,BASE,REMOTE / MERGED"
 [diff]
 	tool = nvim
-	colorMoved = default
-
+	colorMoved = default 
 [difftool]
 	prompt = false
 
