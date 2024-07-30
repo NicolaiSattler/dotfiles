@@ -1,4 +1,4 @@
-vim.cmd.colorscheme 'dracula'
+vim.cmd.colorscheme 'rose-pine'
 
 require('lualine').setup {
   opt = function (_, opts)
@@ -21,6 +21,8 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
+    component_separators = '',
+    section_separators = '',
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -38,8 +40,7 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
+    lualine_x = {'encoding','filetype', 'progress'},
     lualine_z = {'location'}
   },
   inactive_sections = {
