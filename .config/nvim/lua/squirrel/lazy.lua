@@ -133,10 +133,8 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
-  {
-    'Mofiqul/dracula.nvim',
-    priority = 1000
-  },
+  { "rose-pine/neovim", name = "rose-pine" },
+  --{ 'Mofiqul/dracula.nvim', priority = 1000 },
   'nvim-lualine/lualine.nvim',
   {
     dependencies =

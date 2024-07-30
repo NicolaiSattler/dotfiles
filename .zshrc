@@ -12,7 +12,7 @@ bindkey '^ ' autosuggest-execute
 
 plugins=(git z fzf vi-mode)
 
-ZSH_THEME="wezm+" # set by `omz`
+ZSH_THEME="philips" # set by `omz`
 # ENABLE_CORRECTION="true"
 
 source $ZSH/oh-my-zsh.sh
