@@ -27,6 +27,13 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias bathelp='bat --plain --language=help'
 alias vim=$(brew --prefix)'/bin/nvim'
 alias v='fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim'
+alias vw='rg --color=always --line-number --no-heading --smart-case "${*:-}" | \
+  fzf --ansi \
+      --color "hl:-1:underline,hl+:-1:underline:reverse" \
+      --delimiter : \
+      --preview "bat --color=always {1} --highlight-line {2}" \
+      --preview-window "up,60%,border-bottom,+{2}+3/3,~3" \
+      --bind "enter:become(nvim {1} +{2})"'
 
 alias gc="git commit -m"
 alias gca="git commit -a -m"
@@ -44,17 +51,6 @@ alias gba='git branch -a'
 alias gadd='git add'
 alias ga='git add -p'
 alias gcoall='git checkout -- .'
-
-function vw() {
-  if [ -z "$1" ]; then
-    echo "Usage: rgnvim <search-pattern>"
-    return 1
-  fi
-  git ls-files | xargs rg -n -i "$1" |
-  fzf-tmux -p --preview "rg --pretty --context 5 '$1' {1}" --preview-window=up:60%:wrap |
-  awk -F: '{print $1}' |
-  xargs -r nvim
-}
 
 function gitcleanup() {
     git branch | grep -v "main" | xargs git branch -D

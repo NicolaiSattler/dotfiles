@@ -15,12 +15,18 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   --git
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  {
+    'tpope/vim-rhubarb',
+    dependencies = {
+      'tpope/vim-fugitive',
+    }
+  },
+
   'lewis6991/gitsigns.nvim',
 
   -- autodetect tabstop and shiftwidth
   'tpope/vim-sleuth',
+
   -- lsp
   {
     'neovim/nvim-lspconfig',
@@ -155,6 +161,10 @@ require('lazy').setup({
       "nvim-lua/plenary.nvim",
     }
   },
+  -- prettify netrw
+  {
+    'prichrd/netrw.nvim', opts = {}
+  },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -190,6 +200,5 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-
   'jlcrochet/vim-razor'
 }, {})

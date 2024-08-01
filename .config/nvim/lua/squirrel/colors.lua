@@ -40,7 +40,7 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding','filetype', 'progress'},
+    lualine_x = {'encoding','filetype' },
     lualine_z = {'location'}
   },
   inactive_sections = {
