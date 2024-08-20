@@ -1,5 +1,6 @@
 require("notify").setup({
   render = "compact",
   stages = "static",
-  top_down = false
+  top_down = true,
+  max_width = 50
 })
