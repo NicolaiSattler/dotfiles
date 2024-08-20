@@ -109,6 +109,10 @@ require('lazy').setup({
     }
   },
 
+  {
+    'leoluz/nvim-dap-go'
+  },
+
   -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
