@@ -1,6 +1,3 @@
-require('dap-go').setup()
-require('dap.ext.vscode').load_launchjs(nil, {})
-
 local dap = require('dap')
 dap.adapters.coreclr = {
   type = 'executable',
@@ -38,6 +35,9 @@ local config = {
 }
 
 dap.configurations.cs = config
+
+require('dap-go').setup()
+require('dap.ext.vscode').load_launchjs()
 
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'continue' })
 vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = 'step over'})
