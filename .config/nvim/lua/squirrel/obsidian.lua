@@ -2,7 +2,7 @@ require("obsidian").setup({
   workspaces = {
     {
       name = "Work",
-      path = "/home/nieksa/vault/Work"
+      path = "$HOME/vault/work"
     }
   },
   completion = {
