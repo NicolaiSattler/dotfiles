@@ -12,10 +12,10 @@ vim.g.dotnet_build_project = function()
     })
 
     vim.g['dotnet_last_proj_path'] = path
-    local cmd = 'dotnet build -c Debug "' .. path .. '"'
+    local cmd = 'dotnet build -c Debug "' .. path .. '" > /dev/null 2>&1'
 
     print('\n')
-    print('Cmd to execute: ' .. cmd)
+    print('Building...')
 
     local f = os.execute(cmd)
 

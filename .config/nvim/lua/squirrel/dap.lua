@@ -5,39 +5,54 @@ dap.adapters.coreclr = {
   args = {'--interpreter=vscode'}
 }
 
-vim.g.dotnet_get_dll_path = function()
-    local request = function()
-        return vim.fn.input({prompt = 'Path to dll: ', default = vim.fn.getcwd() .. '/bin/Debug/', completion = 'file'})
-    end
+local request = function()
+    local path = vim.fn.input({prompt = 'Path to dll: ', default = vim.fn.getcwd() .. '/bin/Debug/', completion = 'file'})
+    vim.cmd('redraw')
 
+    return path
+end
+
+vim.g.dotnet_get_dll_path = function()
     if vim.g['dotnet_last_dll_path'] == nil then
         vim.g['dotnet_last_dll_path'] = request()
     else
         if vim.fn.confirm('Do you want to change the path to dll?\n' .. vim.g['dotnet_last_dll_path'], '&yes\n&no', 2) == 1 then
             vim.g['dotnet_last_dll_path'] = request()
+
+            vim.cmd('redraw')
         end
     end
-return vim.g['dotnet_last_dll_path'] end
+    return vim.g['dotnet_last_dll_path']
+end
+
 
 local config = {
-  {
-    type = "coreclr",
-    name = "launch - netcoredbg",
-    request = "launch",
-    console = "integratedTerminal",
-    program = function()
-        if vim.fn.confirm('Recompile first?', '&yes\n&no', 2) == 1 then
-            vim.g.dotnet_build_project()
-        end
-        return vim.g.dotnet_get_dll_path()
-    end,
-  },
+    {
+        type = "coreclr",
+        name = "launch - netcoredbg",
+        request = "launch",
+        console = "integratedTerminal",
+        justMyCode = false,
+        stopAtEntry = false,
+        program = function()
+            if vim.fn.confirm('Recompile first?', '&yes\n&no', 2) == 1 then
+                vim.g.dotnet_build_project()
+            end
+            return vim.g.dotnet_get_dll_path()
+        end,
+        cwd = function()
+            return vim.fn.input("Workspace folder: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        env = {
+            ASPNETCORE_ENVIRONMENT = "Development"
+        }
+    }
 }
 
 dap.configurations.cs = config
 
 require('dap-go').setup()
-require('dap.ext.vscode').load_launchjs()
+--require('dap.ext.vscode').load_launchjs({}, nil)
 
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = 'continue' })
 vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = 'step over'})

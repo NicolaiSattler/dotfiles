@@ -26,6 +26,7 @@ alias lt="eza --tree --level=2 --long --icons --git"
 alias myip='curl http://ipecho.net/plain; echo'
 alias bathelp='bat --plain --language=help'
 alias vim=$(brew --prefix)'/bin/nvim'
+alias ff='firefox > /dev/null 2>&1 &'
 alias v='fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim'
 alias vw='rg --color=always --line-number --no-heading --smart-case "${*:-}" | \
   fzf --ansi \
@@ -46,7 +47,7 @@ alias gls='git log --graph --topo-order --abbrev-commit --pretty=format:"%h - %s
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gco="git checkout"
-alias gb='branch=$(git branch -a | fzf-tmux | xargs echo -n) && [[ $branch == origin/* ]] && git switch ${branch#origin/} || git switch $branch'
+alias gb='branch=$(git branch -a | fzf-tmux | xargs echo -n) && [[ $branch == origin/* ]] && git checkout ${branch#origin/} || git checkout $branch'
 alias gba='git branch -a'
 alias gadd='git add'
 alias ga='git add -p'

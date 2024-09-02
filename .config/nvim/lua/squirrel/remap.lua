@@ -7,6 +7,9 @@ vim.keymap.set('n', 'Y', 'Vy')
 
 -- open netrw
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+-- switch buffers
+vim.keymap.set('n', '<leader>+', ":bnext<CR>", { desc = "Next buffer"})
+vim.keymap.set('n', '<leader>-', ":bprevious<CR>", { desc = "Previous Buffer"})
 -- git
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
 -- Keymaps for better default experience
