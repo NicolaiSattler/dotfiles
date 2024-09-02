@@ -9,6 +9,7 @@ SpecFlow*
 .sqlite*
 .zcompdump*
 .DS_Store
+*lock.json
 
 #Folders
 Library/
