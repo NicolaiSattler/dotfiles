@@ -60,13 +60,35 @@ cmp.setup {
   sources = {
     { name = 'path' },
     { name = 'nvim_lsp', keyword_length = 1 },
-    { name = 'nvim_lsp_signature_help'},
+    { name = 'nvim_lsp_signature_help', keyword_length = 2 },
+    { name = 'nvim_lsp_document_symbol', keyword_length = 2 },
     { name = 'nvim_lua', keyword_length = 2 },
     { name = 'buffer', keyword_length = 2 },
     { name = 'vsnip', keyword_length = 2 },
     { name = 'luasnip' }
   },
 }
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' },
+    { name = 'nvim_lsp_document_symbol' }
+  }
+})
+
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+      {
+        name = 'cmdline',
+        option = {
+          ignore_cmds = { 'Man', '!' }
+        }
+      }
+    })
+})
 
 cmp.event:on(
   'confirm_done',
