@@ -177,7 +177,10 @@ require('lazy').setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
+        'nvim-lua/popup.nvim',
+        'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-fzf-native.nvim',
+        'nvim-telescope/telescope-media-files.nvim',
         build = 'make',
         cond = function()
           return vim.fn.executable 'make' == 1

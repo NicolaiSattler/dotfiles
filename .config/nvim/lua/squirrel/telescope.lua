@@ -1,5 +1,7 @@
 local open_with_trouble = require("trouble.sources.telescope").open
-require('telescope').setup {
+local telescope = require('telescope');
+
+telescope.setup {
   defaults = {
     mappings = {
       i = {
@@ -10,17 +12,22 @@ require('telescope').setup {
     },
   },
   extensions = {
+    media_files = {
+      filetypes = { "png", "webp", "jpg", "jpeg"},
+      find_cmd = "rg"
+    },
     fzf = {
       fuzzy = true,
       override_generic_sorter = true,
       override_file_sorter = true,
-      case_mode = "smart_case"
+      case_mode = "ignore_case"
     }
   }
 }
 
 -- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
+telescope.load_extension('fzf')
+telescope.load_extension('media_files')
 
 local function find_git_root()
   -- Use the current buffer's path as the starting point for the git search
@@ -72,6 +79,7 @@ vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { d
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>si', ':Telescope media_files<CR>', { desc = '[S]earch [I]mages' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
