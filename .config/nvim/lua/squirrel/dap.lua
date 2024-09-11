@@ -7,7 +7,6 @@ dap.adapters.coreclr = {
 
 local request = function()
     local path = vim.fn.input({prompt = 'Path to dll: ', default = vim.fn.getcwd() .. '/bin/Debug/', completion = 'file'})
-    vim.cmd('redraw')
 
     return path
 end
@@ -18,8 +17,6 @@ vim.g.dotnet_get_dll_path = function()
     else
         if vim.fn.confirm('Do you want to change the path to dll?\n' .. vim.g['dotnet_last_dll_path'], '&yes\n&no', 2) == 1 then
             vim.g['dotnet_last_dll_path'] = request()
-
-            vim.cmd('redraw')
         end
     end
     return vim.g['dotnet_last_dll_path']
