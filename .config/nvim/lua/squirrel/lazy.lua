@@ -137,6 +137,12 @@ require('lazy').setup({
       'onsails/lspkind.nvim'
     },
   },
+  -- file explorer
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   -- Undotree
   {
     "jiaoshijie/undotree",

@@ -6,7 +6,7 @@ vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', 'Y', 'Vy')
 
 -- open netrw
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Oil)
 -- switch buffers
 vim.keymap.set('n', '<leader>.', ":bnext<CR>", { desc = "Next buffer"})
 vim.keymap.set('n', '<leader>,', ":bprevious<CR>", { desc = "Previous Buffer"})
