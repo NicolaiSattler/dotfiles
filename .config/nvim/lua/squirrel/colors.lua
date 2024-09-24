@@ -1,5 +1,17 @@
 vim.cmd.colorscheme 'rose-pine'
 
+local function macro_recording()
+  local noice = require("noice")
+  local mode = noice.api.status.mode.get()
+
+  if mode then
+    return string.match(mode, "^recording @.*") or ""
+  end
+
+  return ""
+end
+
+
 require('lualine').setup {
   opt = function (_, opts)
     local trouble = require("trouble")
@@ -39,7 +51,7 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'buffers'},
+    lualine_c = { macro_recording, 'buffers'},
     lualine_x = {'encoding','filetype' },
     lualine_z = {}
   },
