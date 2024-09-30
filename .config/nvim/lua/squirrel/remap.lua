@@ -34,5 +34,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 --vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 
+vim.api.nvim_set_keymap('n', '<leader>bc', ':bd|e#|bd#<CR>', { noremap = true, silent =  true})
+
 vim.api.nvim_set_keymap("n", "W,", ":vertical resize -10<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "W.", ":vertical resize +10<CR>", {noremap=true})
