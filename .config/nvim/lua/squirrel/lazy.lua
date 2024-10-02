@@ -42,6 +42,17 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+  -- testexplorer
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "Issafalcon/neotest-dotnet"
+    }
+  },
   -- noice - pretty commands :o 
   {
     "folke/noice.nvim",
