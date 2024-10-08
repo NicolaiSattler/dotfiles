@@ -10,6 +10,7 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
+
 cmp.setup {
   formatting = {
     format = lspkind.cmp_format({
@@ -65,9 +66,13 @@ cmp.setup {
     { name = 'nvim_lua', keyword_length = 2 },
     { name = 'buffer', keyword_length = 2 },
     { name = 'vsnip', keyword_length = 2 },
-    { name = 'luasnip' }
+    { name = 'luasnip' },
+    { name = 'easy-dotnet' }
   },
 }
+
+cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
+
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {

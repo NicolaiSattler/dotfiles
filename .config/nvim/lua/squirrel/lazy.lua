@@ -42,17 +42,27 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-  -- testexplorer
+  --dotnet <3
   {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-neotest/nvim-nio",
-      "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "Issafalcon/neotest-dotnet"
-    }
+    "GustavEikaas/easy-dotnet.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim', },
+    config = function()
+      require("easy-dotnet").setup()
+    end
   },
+  -- testexplorer
+  -- {
+  --   "nvim-neotest/neotest",
+  --   dependencies = {
+  --     "nvim-neotest/nvim-nio",
+  --     "nvim-lua/plenary.nvim",
+  --     "antoinemadec/FixCursorHold.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "Issafalcon/neotest-dotnet"
+  --   }
+  -- },
+  -- start window
+  "mhinz/vim-startify",
   -- noice - pretty commands :o 
   {
     "folke/noice.nvim",
