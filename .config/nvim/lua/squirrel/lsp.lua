@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
   local wd = require("workspace-diagnostics")
   wd.populate_workspace_diagnostics(client, bufnr)
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>cn', vim.lsp.buf.rename, '[C]hange [N]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', require('telescope.builtin').lsp_definitions, '[g]oto [d]efinition')

@@ -1,3 +1,25 @@
+local dotnet = require("easy-dotnet")
+dotnet.setup({
+    test_runner = {
+        viewmode = "float",
+        noBuild = true,
+        noRestore = true,
+        icons = {
+            passed = "",
+            skipped = "",
+            failed = "",
+            success = "",
+            reload = "",
+            test = "",
+            sln = "󰘐",
+            project = "󰘐",
+            dir = "",
+            package = "",
+        }
+    }
+})
+
+-- obsolete
 vim.g.dotnet_build_project = function()
     local default_path = vim.fn.getcwd() .. '/'
 
@@ -6,9 +28,9 @@ vim.g.dotnet_build_project = function()
     end
 
     local path = vim.fn.input({
-      prompt = 'Path to your *.csproj file: ',
-      default = default_path,
-      completion = 'file'
+        prompt = 'Path to your *.csproj file: ',
+        default = default_path,
+        completion = 'file'
     })
 
     vim.g['dotnet_last_proj_path'] = path
