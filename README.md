@@ -19,6 +19,7 @@ Install the following command line utilties:
 - ripgrep
 - neovim
 - stow
+- carapace
 
 # dotfiles
 Initialization:
