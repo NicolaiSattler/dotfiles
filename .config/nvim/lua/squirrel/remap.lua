@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Oil)
 vim.keymap.set('n', '<leader>.', ":bnext<CR>", { desc = "Next buffer"})
 vim.keymap.set('n', '<leader>,', ":bprevious<CR>", { desc = "Previous Buffer"})
 -- git
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
+--vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
 -- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- move selected lines with J & K to a different line. <3 ThePrimeagen

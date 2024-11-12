@@ -15,11 +15,23 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   --git
+  -- {
+  --   'tpope/vim-rhubarb',
+  --   dependencies = {
+  --     'tpope/vim-fugitive',
+  --   }
+  -- },
+
   {
-    'tpope/vim-rhubarb',
+    "NeogitOrg/neogit",
     dependencies = {
-      'tpope/vim-fugitive',
-    }
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
+      "echasnovski/mini.pick",
+    },
+    config = true
   },
 
   'lewis6991/gitsigns.nvim',

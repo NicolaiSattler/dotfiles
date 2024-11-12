@@ -61,8 +61,8 @@ cmp.setup {
   sources = {
     { name = 'path' },
     { name = 'nvim_lsp', keyword_length = 1 },
-    { name = 'nvim_lsp_signature_help', keyword_length = 2 },
-    { name = 'nvim_lsp_document_symbol', keyword_length = 2 },
+    { name = 'nvim_lsp_signature_help', keyword_length = 1 },
+    { name = 'nvim_lsp_document_symbol', keyword_length = 1 },
     { name = 'nvim_lua', keyword_length = 2 },
     { name = 'buffer', keyword_length = 2 },
     { name = 'vsnip', keyword_length = 2 },
