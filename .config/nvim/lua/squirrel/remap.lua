@@ -11,7 +11,9 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Oil)
 vim.keymap.set('n', '<leader>.', ":bnext<CR>", { desc = "Next buffer"})
 vim.keymap.set('n', '<leader>,', ":bprevious<CR>", { desc = "Previous Buffer"})
 -- git
---vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[g]it [s]tatus" })
+vim.keymap.set("n", "<leader>gs", ":Neogit<CR>", { desc = "[g]it [s]tatus", silent = true})
+vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "[g]it [d]iff", silent = true })
+vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "[g]it [b]lame", silent = true })
 -- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- move selected lines with J & K to a different line. <3 ThePrimeagen
@@ -36,5 +38,5 @@ vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Open float
 
 vim.api.nvim_set_keymap('n', '<leader>bc', ':bd|e#|bd#<CR>', { noremap = true, silent =  true})
 
-vim.api.nvim_set_keymap("n", "W,", ":vertical resize -10<CR>", {noremap=true})
-vim.api.nvim_set_keymap("n", "W.", ":vertical resize +10<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>-", ":vertical resize -10<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>+", ":vertical resize +10<CR>", {noremap=true})
