@@ -4,6 +4,9 @@ export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 zstyle ':omz:update' mode reminder                      # ow my zsh update: remind me to update
 
 bindkey -v                                              # enable vi mode
@@ -112,3 +115,6 @@ eval `keychain --eval --agents ssh id_rsa`
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
+
+#starship
+eval "$(starship init zsh)"
