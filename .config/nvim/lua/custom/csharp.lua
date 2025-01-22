@@ -19,7 +19,23 @@ ls.add_snippets("csharp", {
 		t("\npublic void "),i(1, "function name"), t("()"),
 		t("\n{"),
 		t("\n\t//Arrange"),
+		t("\n"),
 		t("\n\t//Act"),
+		t("\n"),
+		t("\n\t//Assert"),
+		t("\n}")
+	})
+})
+
+ls.add_snippets("csharp", {
+	s("testmt", {
+		t("[TestMethod]"),
+		t("\npublic async Task "),i(1, "function name"), t("()"),
+		t("\n{"),
+		t("\n\t//Arrange"),
+		t("\n"),
+		t("\n\t//Act"),
+		t("\n"),
 		t("\n\t//Assert"),
 		t("\n}")
 	})

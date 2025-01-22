@@ -11,6 +11,12 @@ telescope.setup {
       },
     },
   },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    }
+  },
+
   extensions = {
     media_files = {
       filetypes = { "png", "webp", "jpg", "jpeg"},
@@ -62,36 +68,45 @@ local function live_grep_git_root()
 end
 
 local function telescope_live_grep_open_files()
-  require('telescope.builtin').live_grep {
-    grep_open_files = true,
-    prompt_title = 'Live Grep in Open Files',
-  }
+  require('telescope.builtin').live_grep( 
+    require('telescope.themes').get_ivy(),
+    {
+      grep_open_files = true,
+      prompt_title = 'Live Grep in Open Files',
+      max_result = 50
+    })
 end
 
 local function telescope_live_grep_fixed()
-    require('telescope.builtin').live_grep({ additional_args = { "-j1" }})
+    require('telescope.builtin').live_grep(
+      require('telescope.themes').get_ivy(),
+      {
+        prompt_title = 'Live Grep in Open Files',
+        max_result = 50,
+        additional_args = { "-j1" }
+      })
 end
 
 vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>?', function() require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy()) end, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy()) end, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
-vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+--vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
+--vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>si', ':Telescope media_files<CR>', { desc = '[S]earch [I]mages' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sf', function() require('telescope.builtin').find_files(require('telescope.themes').get_ivy()) end, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sw', function() require('telescope.builtin').grep_string(require('telescope.themes').get_ivy()) end, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', telescope_live_grep_fixed, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+--vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+--vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
+-- vim.keymap.set('n', '<leader>/', function()
+--   -- You can pass additional configuration to telescope to change theme, layout, etc.
+--   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+--     winblend = 10,
+--     previewer = false,
+--   })
+-- end, { desc = '[/] Fuzzily search in current buffer' })
