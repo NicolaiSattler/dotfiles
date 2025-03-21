@@ -10,6 +10,4 @@ wk.add(
     { "", group = "Git [H]unk" },
     { "", group = "[D]ocument" },
     { "<leader>u", desc = "[U]ndotree"},
-    { "<leader>r", desc = "[R]un Dotnet test (under cursor)"},
-    { "<leader>d", desc = "[D]ebug Dotnet test (under cursor)"},
   })

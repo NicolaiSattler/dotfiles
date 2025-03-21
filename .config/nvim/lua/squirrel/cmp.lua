@@ -10,6 +10,7 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
+cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
 
 cmp.setup {
   formatting = {
@@ -70,8 +71,6 @@ cmp.setup {
     { name = 'easy-dotnet' }
   },
 }
-
-cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
 
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),

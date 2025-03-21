@@ -10,8 +10,13 @@
 	diffFilter = delta --color-only
 
 [delta]
-	navigate = true # use n and N to move between diff sections
-	side-by-side = false
+	light = false
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-style = file line-number syntax
 
 [user]
 	name = Nicolai Sattler
@@ -23,20 +28,14 @@
 [rerere]
 	enabled = true
 
-[mergetool "nvim"]
-	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 [merge]
 	tool = nvimdiff
-[mergetool]
-	prompt = false
-	keepBackup = false
 [mergetool "nvimdiff"]
-	layout = "LOCAL,BASE,REMOTE / MERGED"
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'[diff]
+
 [diff]
-	tool = nvim
-	colorMoved = default 
-[difftool]
-	prompt = false
+	tool = nvimdiff
+	colorMoved = default
 
 [init]
 	defaultBranch = main
@@ -44,3 +43,6 @@
 [alias]
 	graphfull = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n\"\" %C(white)%s%C(reset) %C(dim white)- %an%C(reset)\" --all
 	graph = log --graph --all --decorate --oneline --stat
+[mergetool "vscode"]
+	cmd = code --reuse-window --wait \"\"
+	trustExitCode = true

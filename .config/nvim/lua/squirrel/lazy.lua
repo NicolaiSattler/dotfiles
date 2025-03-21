@@ -15,26 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   --git
-  -- {
-  --   'tpope/vim-rhubarb',
-  --   dependencies = {
-  --     'tpope/vim-fugitive',
-  --   }
-  -- },
-
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
-      "ibhagwan/fzf-lua",
-      "echasnovski/mini.pick",
-    },
-    config = true
-  },
-
   'lewis6991/gitsigns.nvim',
+
+  'tpope/vim-fugitive',
 
   -- autodetect tabstop and shiftwidth
   'tpope/vim-sleuth',
@@ -62,16 +45,12 @@ require('lazy').setup({
       require("easy-dotnet").setup()
     end
   },
-  -- testexplorer
+
+  -- //Check requirements
   -- {
-  --   "nvim-neotest/neotest",
-  --   dependencies = {
-  --     "nvim-neotest/nvim-nio",
-  --     "nvim-lua/plenary.nvim",
-  --     "antoinemadec/FixCursorHold.nvim",
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "Issafalcon/neotest-dotnet"
-  --   }
+  --     "seblyng/roslyn.nvim",
+  --     ft = "cs",
+  --     opts = {}
   -- },
   -- start window
   "mhinz/vim-startify",
@@ -205,10 +184,6 @@ require('lazy').setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
     }
-  },
-  -- prettify netrw
-  {
-    'prichrd/netrw.nvim', opts = {}
   },
   {
     'nvim-telescope/telescope.nvim',
