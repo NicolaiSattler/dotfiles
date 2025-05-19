@@ -30,8 +30,9 @@
 
 [merge]
 	tool = nvimdiff
+
 [mergetool "nvimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'[diff]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
 
 [diff]
 	tool = nvimdiff
@@ -43,6 +44,3 @@
 [alias]
 	graphfull = log --graph --abbrev-commit --decorate --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n\"\" %C(white)%s%C(reset) %C(dim white)- %an%C(reset)\" --all
 	graph = log --graph --all --decorate --oneline --stat
-[mergetool "vscode"]
-	cmd = code --reuse-window --wait \"\"
-	trustExitCode = true

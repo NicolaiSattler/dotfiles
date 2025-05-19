@@ -5,6 +5,10 @@ vim.keymap.set('i', 'jk', '<Esc>')
 
 vim.keymap.set('n', 'Y', 'Vy')
 
+--quickfixlist
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
 -- open netrw
 vim.keymap.set('n', '<leader>pv', vim.cmd.Oil)
 -- switch buffers

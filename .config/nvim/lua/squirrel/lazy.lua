@@ -17,8 +17,6 @@ require('lazy').setup({
   --git
   'lewis6991/gitsigns.nvim',
 
-  'tpope/vim-fugitive',
-
   -- autodetect tabstop and shiftwidth
   'tpope/vim-sleuth',
 
@@ -201,6 +199,11 @@ require('lazy').setup({
         end,
       },
     },
+  },
+  {
+    "ellisonleao/glow.nvim",
+    config = true,
+    cmd = "Glow"
   },
   {
       "ThePrimeagen/harpoon",

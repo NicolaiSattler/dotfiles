@@ -50,7 +50,7 @@ alias gls='git log --graph --topo-order --abbrev-commit --pretty=format:"%h - %s
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gco="git checkout"
-alias gb='branch=$(git branch -a | fzf-tmux | xargs echo -n) && [[ $branch == origin/* ]] && git checkout ${branch#origin/} || git checkout $branch'
+alias gb='branch=$(git branch -a | fzf-tmux | xargs echo -n) && [[ $branch == remotes/origin/* ]] && git checkout ${branch#remotes/origin/} || git checkout $branch'
 alias gba='git branch -a'
 alias gadd='git add'
 alias ga='git add -p'

@@ -59,7 +59,6 @@ local servers = {
   cssls = {},
   html = {},
   csharp_ls = {},
-  tsserver = {},
   jsonls = {},
   yamlls = {}
 }
@@ -73,21 +72,20 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
+local lspconfig = require("lspconfig")
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+for server_name, config in pairs(servers) do
+  lspconfig[server_name].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = config.settings,
+    filetypes = config.filetypes, -- optional
+  }
+end
 
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
