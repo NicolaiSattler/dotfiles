@@ -22,8 +22,53 @@ vim.g.dotnet_get_dll_path = function()
     return vim.g['dotnet_last_dll_path']
 end
 
+local pickers = require('telescope.pickers')
+local finders = require('telescope.finders')
+local conf = require('telescope.config').values
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
 
 local config = {
+    {
+        name = "Attach to process",
+        type = "coreclr",
+        request = "attach",
+        processId = function()
+            return coroutine.create(function(coro)
+              local opts = {}
+              pickers.new(opts, {
+                prompt_title = "Select process",
+                finder = finders.new_oneshot_job(
+                  { "ps", "aux" },
+                  {
+                    entry_maker = function(line)
+                      -- Skip header line
+                      if line:match("^USER") then return nil end
+                      local user, pid, cpu, mem, vsz, rss, tty, stat, start, time, command =
+                        line:match("^(%S+)%s+(%d+)%s+(%S+)%s+(%S+)%s+(%S+)%s+(%S+)%s+(%S+)%s+(%S+)%s+(%S+)%s+(%S+)%s+(.+)$")
+                      if pid and command then
+                        return {
+                          value = tonumber(pid),
+                          display = pid .. " " .. command,
+                          ordinal = line,
+                        }
+                      end
+                    end,
+                  }
+                ),
+                sorter = conf.generic_sorter(opts),
+                attach_mappings = function(prompt_bufnr)
+                  actions.select_default:replace(function()
+                    actions.close(prompt_bufnr)
+                    local selection = action_state.get_selected_entry()
+                    coroutine.resume(coro, selection.value)
+                  end)
+                  return true
+                end,
+              }):find()
+            end)
+        end,
+    },
     {
         type = "coreclr",
         name = "launch - netcoredbg",
