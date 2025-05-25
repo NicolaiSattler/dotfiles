@@ -16,10 +16,10 @@ dotnet.setup({
             dir = "",
             package = "",
         },
-        mappings = {
-            run_test_from_buffer = { lhs = "<leader>er", desc = "run test from buffer" },
-            debug_test_from_buffer = { lhs = "<leader>ed", desc = "debug test from buffer" },
-        }
+        -- mappings = {
+        --     run_test_from_buffer = { lhs = "<leader>er", desc = "run test from buffer" },
+        --     debug_test_from_buffer = { lhs = "<leader>ed", desc = "debug test from buffer" },
+        -- }
     }
 })
 

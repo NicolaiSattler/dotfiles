@@ -93,6 +93,9 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+--csharp extended
+require("csharpls_extended").buf_read_cmd_bind()
+
 -- change filetype for razor based files
 vim.api.nvim_command([[autocmd BufNewfile, BufRead *.cshtml set filetype=html.cshtml.razor]])
 vim.api.nvim_command([[autocmd BufNewfile, BufRead *.razor set filetype=html.cshtml.razor]])

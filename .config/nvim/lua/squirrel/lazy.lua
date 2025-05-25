@@ -35,6 +35,7 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+  "Decodetalkers/csharpls-extended-lsp.nvim",
   --dotnet <3
   {
     "GustavEikaas/easy-dotnet.nvim",
