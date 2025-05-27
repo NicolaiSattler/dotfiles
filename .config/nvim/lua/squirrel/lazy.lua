@@ -185,6 +185,11 @@ require('lazy').setup({
     }
   },
   {
+      'MeanderingProgrammer/render-markdown.nvim',
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+      opts = {},
+  },
+  {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = {
@@ -200,11 +205,6 @@ require('lazy').setup({
         end,
       },
     },
-  },
-  {
-    "ellisonleao/glow.nvim",
-    config = true,
-    cmd = "Glow"
   },
   {
       "ThePrimeagen/harpoon",

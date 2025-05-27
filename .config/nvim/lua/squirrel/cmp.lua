@@ -68,7 +68,8 @@ cmp.setup {
     { name = 'buffer', keyword_length = 2 },
     { name = 'vsnip', keyword_length = 2 },
     { name = 'luasnip' },
-    { name = 'easy-dotnet' }
+    { name = 'easy-dotnet' },
+    { name = 'render-markdown' }
   },
 }
 
