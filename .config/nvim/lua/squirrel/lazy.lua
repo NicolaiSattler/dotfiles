@@ -35,6 +35,33 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        auth_provider_url = "https://stichting-bkr.ghe.com",
+        -- suggestion = { enabled = false },
+        -- panel = { enabled = false }
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    build = "make tiktoken",
+    opts = {},
+  },
   "Decodetalkers/csharpls-extended-lsp.nvim",
   --dotnet <3
   {

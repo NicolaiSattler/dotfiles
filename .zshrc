@@ -30,7 +30,7 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias bathelp='bat --plain --language=help'
 alias vim=$(brew --prefix)'/bin/nvim'
 alias ff='firefox > /dev/null 2>&1 &'
-alias kp="ps -ef | sed 1d | fzf --multi --preview 'echo {}' | awk '{print $2}' | xargs -r kill -9"
+alias kp='ps aux | fzf | awk "{print \$2}" | xargs kill -9'
 alias v='fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim'
 alias vw='rg --color=always --line-number --no-heading --smart-case "${*:-}" | \
   fzf --ansi \

@@ -12,11 +12,41 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
 
+local kind_icons = {
+  Class = "ﴯ",
+  Color = "",
+  Constant = "",
+  Constructor = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "",
+  File = "",
+  Folder = "",
+  Function = "",
+  Interface = "",
+  Keyword = "",
+  Method = "",
+  Module = "",
+  Operator = "",
+  Property = "ﰠ",
+  Reference = "",
+  Snippet = "",
+  Struct = "",
+  Text = "",
+  TypeParameter = "",
+  Unit = "",
+  Value = "",
+  Variable = "",
+  Copilot = ""
+}
+
 cmp.setup {
   formatting = {
     format = lspkind.cmp_format({
       mode = 'symbol', -- show only symbol annotations
       maxwidth = 50,
+      symbol_map = kind_icons,
       ellipsis_char = '...',
       show_labelDetails = true,
     })
@@ -60,8 +90,9 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'path' },
-    { name = 'nvim_lsp', keyword_length = 1 },
+    { name = 'path', group_index = 2 },
+    { name = 'copilot', group_index = 2 },
+    { name = 'nvim_lsp', keyword_length = 1, group_index = 2},
     -- { name = 'nvim_lsp_signature_help', keyword_length = 1 },
     { name = 'nvim_lsp_document_symbol', keyword_length = 1 },
     { name = 'nvim_lua', keyword_length = 2 },

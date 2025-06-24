@@ -10,7 +10,11 @@ vim.opt.termguicolors = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.wrap = true
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 vim.opt.breakindent = true
@@ -33,7 +37,7 @@ vim.opt.clipboard = 'unnamedplus'
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 vim.opt.scrolloff = 8
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = '120'
 vim.opt.isfname:append('@-@')
 
 -- Decrease update time
