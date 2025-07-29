@@ -51,3 +51,6 @@ vim.opt.completeopt = 'menuone,noselect'
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+--copilot
+vim.g.copilot_enterprise_uri = 'https://stichting-bkr.ghe.com'

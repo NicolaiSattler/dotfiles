@@ -34,6 +34,10 @@
 [mergetool "nvimdiff"]
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
 
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+    trustExitCode = false
+
 [diff]
 	tool = nvimdiff
 	colorMoved = default
