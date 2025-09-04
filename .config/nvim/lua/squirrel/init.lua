@@ -1,4 +1,5 @@
 require("squirrel.lazy")
+require("squirrel.mason")
 require("squirrel.remap")
 require("squirrel.set")
 require("squirrel.utilities")

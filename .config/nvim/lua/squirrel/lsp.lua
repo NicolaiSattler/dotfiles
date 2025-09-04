@@ -1,8 +1,7 @@
 -- Language Server Protocol configuration
 local on_attach = function(client, bufnr)
-
   --disable inline buffer errors
-  vim.diagnostic.config({virtual_text = false})
+  vim.diagnostic.config({ virtual_text = false })
   require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 
   local nmap = function(keys, func, desc)
@@ -19,12 +18,21 @@ local on_attach = function(client, bufnr)
   nmap('<leader>cn', vim.lsp.buf.rename, '[C]hange [N]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-  nmap('gd', require('telescope.builtin').lsp_definitions, '[g]oto [d]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[g]oto [r]eferences')
-  nmap('gi', require('telescope.builtin').lsp_implementations, '[g]oto [i]mplementation')
-  nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('gd', function() require('telescope.builtin').lsp_definitions(require('telescope.themes').get_ivy()) end,
+    '[g]oto [d]efinition')
+  nmap('gr', function() require('telescope.builtin').lsp_references(require('telescope.themes').get_ivy()) end,
+    '[g]oto [r]eferences')
+  nmap('gi', function() require('telescope.builtin').lsp_implementations(require('telescope.themes').get_ivy()) end,
+    '[g]oto [i]mplementation')
+  nmap('<leader>D',
+    function() require('telescope.builtin').lsp_type_definitions(require('telescope.themes').get_ivy()) end,
+    'Type [D]efinition')
+  nmap('<leader>ss',
+    function() require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_ivy()) end,
+    'Search [D]ocument [S]ymbols')
+  nmap('<leader>sws',
+    function() require('telescope.builtin').lsp_dynamic_workspace_symbols(require('telescope.themes').get_ivy()) end,
+    '[S]earch [W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -32,12 +40,12 @@ local on_attach = function(client, bufnr)
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-  nmap('<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
---  nmap('<leader>th', vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})), '[t]oggle inlay [hint]')
+  -- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+  -- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+  -- nmap('<leader>wl', function()
+  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  -- end, '[W]orkspace [L]ist Folders')
+  --  nmap('<leader>th', vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})), '[t]oggle inlay [hint]')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -58,7 +66,6 @@ local servers = {
   },
   cssls = {},
   html = {},
-  csharp_ls = {},
   jsonls = {},
   yamlls = {}
 }

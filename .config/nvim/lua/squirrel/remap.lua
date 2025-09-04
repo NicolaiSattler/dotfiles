@@ -10,7 +10,7 @@ vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
 -- open netrw
-vim.keymap.set('n', '<leader>pv', vim.cmd.Oil)
+vim.keymap.set('n', '<leader>e', vim.cmd.Oil, { desc = "Open file [e]xplorer"})
 -- switch buffers
 vim.keymap.set('n', '<leader>.', ":bnext<CR>", { desc = "Next buffer"})
 vim.keymap.set('n', '<leader>,', ":bprevious<CR>", { desc = "Previous Buffer"})

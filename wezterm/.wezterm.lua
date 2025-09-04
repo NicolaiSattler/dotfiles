@@ -1,11 +1,18 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+config.disable_default_key_bindings = true
 config.color_scheme = "rose-pine"
 config.font = "Fire Code"
 config.font_size = 10
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
+config.window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+}
 
 function get_os_type()
         local handle = io.popen("uname -s")

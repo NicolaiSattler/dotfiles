@@ -36,6 +36,12 @@ require('lazy').setup({
     },
   },
   {
+    "seblyng/roslyn.nvim",
+    opts = {
+
+    }
+  },
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -59,6 +65,9 @@ require('lazy').setup({
   },
   -- start window
   "mhinz/vim-startify",
+  {
+    "folke/twilight.nvim",
+  },
   -- noice - pretty commands :o 
   {
     "folke/noice.nvim",
@@ -212,11 +221,11 @@ require('lazy').setup({
       },
     },
   },
-  {
-      "ThePrimeagen/harpoon",
-      branch = "harpoon2",
-      dependencies = { "nvim-lua/plenary.nvim" }
-  },
+  -- {
+  --     "ThePrimeagen/harpoon",
+  --     branch = "harpoon2",
+  --     dependencies = { "nvim-lua/plenary.nvim" }
+  -- },
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim', opts = {}
