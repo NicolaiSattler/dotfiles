@@ -12,9 +12,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  local wd = require("workspace-diagnostics")
-  wd.populate_workspace_diagnostics(client, bufnr)
-
   nmap('<leader>cn', vim.lsp.buf.rename, '[C]hange [N]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -53,9 +50,6 @@ local on_attach = function(client, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
-require('mason').setup()
-require('mason-lspconfig').setup()
-
 local servers = {
   lua_ls = {
     Lua = {
@@ -66,24 +60,23 @@ local servers = {
   },
   cssls = {},
   html = {},
+  roslyn = {},
+  csharp_ls = {},
   jsonls = {},
-  yamlls = {}
+  yamlls = {},
 }
-
--- Setup neovim lua configuration
-require('neodev').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+-- local mason_lspconfig = require 'mason-lspconfig'
 local lspconfig = require("lspconfig")
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
+-- mason_lspconfig.setup {
+--   ensure_installed = vim.tbl_keys(servers),
+-- }
 
 for server_name, config in pairs(servers) do
   lspconfig[server_name].setup {

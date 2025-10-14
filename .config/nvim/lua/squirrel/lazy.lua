@@ -28,59 +28,40 @@ require('lazy').setup({
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
 
-      -- Useful status updates for LSP
-      { 'j-hui/fidget.nvim', opts = {} },
-
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      -- { 'j-hui/fidget.nvim', opts = {} },
     },
   },
-  {
-    "seblyng/roslyn.nvim",
-    opts = {
 
-    }
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        auth_provider_url = "https://stichting-bkr.ghe.com",
-        -- suggestion = { enabled = false },
-        -- panel = { enabled = false }
-      })
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("copilot").setup({
+  --       auth_provider_url = "https://stichting-bkr.ghe.com",
+  --       -- suggestion = { enabled = false },
+  --       -- panel = { enabled = false }
+  --     })
+  --   end,
+  -- },
   "github/copilot.vim",
   "Decodetalkers/csharpls-extended-lsp.nvim",
   --dotnet <3
   {
     "GustavEikaas/easy-dotnet.nvim",
     dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim', },
-    config = function()
-      require("easy-dotnet").setup()
-    end
   },
   -- start window
-  "mhinz/vim-startify",
-  {
-    "folke/twilight.nvim",
-  },
+  "folke/twilight.nvim",
+
   -- noice - pretty commands :o 
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-      -- add any options here
-    },
+    opts = { },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
   },
@@ -131,12 +112,9 @@ require('lazy').setup({
     'rcarriga/nvim-dap-ui',
     dependencies = {
       'mfussenegger/nvim-dap',
-      'nvim-neotest/nvim-nio'
+      'nvim-neotest/nvim-nio',
+      'leoluz/nvim-dap-go'
     }
-  },
-
-  {
-    'leoluz/nvim-dap-go'
   },
 
   -- Autocompletion
@@ -144,7 +122,6 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
 
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
 
@@ -155,11 +132,8 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-path',
       'hrsh7th/vim-vsnip',
-      -- for vim cmdline
       'hrsh7th/cmp-cmdline',
-      -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
-      -- icons
       'onsails/lspkind.nvim'
     },
   },
@@ -221,11 +195,6 @@ require('lazy').setup({
       },
     },
   },
-  -- {
-  --     "ThePrimeagen/harpoon",
-  --     branch = "harpoon2",
-  --     dependencies = { "nvim-lua/plenary.nvim" }
-  -- },
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim', opts = {}

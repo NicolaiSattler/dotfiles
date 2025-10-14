@@ -33,6 +33,8 @@ vim.opt.mouse = 'a'
 vim.opt.swapfile = false
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = 'unnamedplus'
+-- disable slow clipboard provider
+--vim.g.loaded_clipboard_provider = 1
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'

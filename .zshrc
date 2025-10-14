@@ -42,6 +42,7 @@ alias vw='rg --color=always --line-number --no-heading --smart-case "${*:-}" | \
 
 alias gc="git commit -m"
 alias gca="git commit -a -m"
+alias gcan="git commit -a --amend --no-edit"
 alias gp="git push origin HEAD"
 alias gpu="git pull origin"
 alias gf="git fetch"

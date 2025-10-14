@@ -3,5 +3,5 @@ require("notify").setup({
   stages = "static",
   top_down = true,
   max_width = 50,
-  level = "WARN"
+  level = "INFO"
 })
