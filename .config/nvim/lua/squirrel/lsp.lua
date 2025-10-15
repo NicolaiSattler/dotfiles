@@ -15,21 +15,12 @@ local on_attach = function(client, bufnr)
   nmap('<leader>cn', vim.lsp.buf.rename, '[C]hange [N]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-  nmap('gd', function() require('telescope.builtin').lsp_definitions(require('telescope.themes').get_ivy()) end,
-    '[g]oto [d]efinition')
-  nmap('gr', function() require('telescope.builtin').lsp_references(require('telescope.themes').get_ivy()) end,
-    '[g]oto [r]eferences')
-  nmap('gi', function() require('telescope.builtin').lsp_implementations(require('telescope.themes').get_ivy()) end,
-    '[g]oto [i]mplementation')
-  nmap('<leader>D',
-    function() require('telescope.builtin').lsp_type_definitions(require('telescope.themes').get_ivy()) end,
-    'Type [D]efinition')
-  nmap('<leader>ss',
-    function() require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_ivy()) end,
-    'Search [D]ocument [S]ymbols')
-  nmap('<leader>sws',
-    function() require('telescope.builtin').lsp_dynamic_workspace_symbols(require('telescope.themes').get_ivy()) end,
-    '[S]earch [W]orkspace [S]ymbols')
+  nmap('gd', function() require('telescope.builtin').lsp_definitions(require('telescope.themes').get_ivy()) end, '[g]oto [d]efinition')
+  nmap('gr', function() require('telescope.builtin').lsp_references(require('telescope.themes').get_ivy()) end, '[g]oto [r]eferences')
+  nmap('gi', function() require('telescope.builtin').lsp_implementations(require('telescope.themes').get_ivy()) end, '[g]oto [i]mplementation')
+  nmap('<leader>D', function() require('telescope.builtin').lsp_type_definitions(require('telescope.themes').get_ivy()) end, 'Type [D]efinition')
+  nmap('<leader>ss', function() require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_ivy()) end, 'Search [D]ocument [S]ymbols')
+  nmap('<leader>sws', function() require('telescope.builtin').lsp_dynamic_workspace_symbols(require('telescope.themes').get_ivy()) end, '[S]earch [W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -61,7 +52,7 @@ local servers = {
   cssls = {},
   html = {},
   roslyn = {},
-  csharp_ls = {},
+  -- csharp_ls = {},
   jsonls = {},
   yamlls = {},
 }
@@ -71,12 +62,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
--- local mason_lspconfig = require 'mason-lspconfig'
+local mason_lspconfig = require 'mason-lspconfig'
 local lspconfig = require("lspconfig")
 
--- mason_lspconfig.setup {
---   ensure_installed = vim.tbl_keys(servers),
--- }
+mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(servers),
+}
 
 for server_name, config in pairs(servers) do
   lspconfig[server_name].setup {

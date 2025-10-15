@@ -4,6 +4,11 @@ vim.g.maplocalleader = ' '
 
 vim.opt.guicursor = ""
 
+vim.o.cursorline = true
+vim.o.confirm = true
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
 -- check if terminal supports this
 vim.opt.termguicolors = true
 

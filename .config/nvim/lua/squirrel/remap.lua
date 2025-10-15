@@ -9,6 +9,7 @@ vim.keymap.set('n', 'Y', 'Vy')
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 -- open netrw
 vim.keymap.set('n', '<leader>e', vim.cmd.Oil, { desc = "Open file [e]xplorer"})
 -- switch buffers

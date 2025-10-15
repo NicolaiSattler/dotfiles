@@ -1,4 +1,5 @@
-vim.cmd.colorscheme 'rose-pine'
+-- vim.cmd.colorscheme 'rose-pine'
+vim.cmd.colorscheme 'tokyonight-night'
 -- Set background to transparent
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 
@@ -13,6 +14,7 @@ local function macro_recording()
   return ""
 end
 
+local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
 
 require('lualine').setup {
   opt = function (_, opts)
@@ -51,10 +53,10 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {'mode' },
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = { macro_recording, 'buffers'},
-    lualine_x = {'encoding','filetype' },
+    lualine_x = { job_indicator, 'encoding','filetype' },
     lualine_z = {}
   },
   inactive_sections = {

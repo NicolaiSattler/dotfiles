@@ -4,6 +4,12 @@ dotnet.setup({
         enabled = true,
         roslynator_enabled = true
     },
+    server = {
+        log_level =  "Information"
+    },
+    notifications = {
+        handler = false;
+    },
     test_runner = {
         viewmode = "buf",
         noBuild = true,
