@@ -30,7 +30,7 @@ if os_type == "Linux" then
 	config.default_domain = "WSL:Ubuntu"
 	config.font_size = 10
 else
-	config.font_size = 11
+	config.font_size = 12
 end
 
 return config

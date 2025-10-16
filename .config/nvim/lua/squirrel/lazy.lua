@@ -205,6 +205,7 @@ require("lazy").setup({
 		config = true,
 	},
 	-- autoformatter
+	-- TODO move config to seperate file
 	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
@@ -234,11 +235,14 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+				cs = { "dotnet_format" },
+			},
+			formatters = {
+				dotnet_format = {
+					command = "dotnet",
+					args = { "format", "--include", "$FILENAME" },
+					stdin = false,
+				},
 			},
 		},
 	},

@@ -32,3 +32,5 @@ configstore/
 broot/
 zed/
 .config/
+!.config/nvim/
+!.config/bat/
