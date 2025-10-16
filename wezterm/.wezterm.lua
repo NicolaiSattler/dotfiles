@@ -14,10 +14,6 @@ config.window_padding = {
 	bottom = 0,
 }
 
-config.keys = {
-	{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' }
-}
-
 function get_os_type()
 	local handle = io.popen("uname -s")
 	if handle then
@@ -32,6 +28,9 @@ local os_type = get_os_type()
 
 if os_type == "Linux" then
 	config.default_domain = "WSL:Ubuntu"
+	config.font_size = 10
+else
+	config.font_size = 11
 end
 
 return config
