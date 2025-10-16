@@ -14,6 +14,10 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.keys = {
+	{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' }
+}
+
 function get_os_type()
 	local handle = io.popen("uname -s")
 	if handle then
