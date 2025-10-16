@@ -19,6 +19,12 @@
       "commands": [
         "dotnet-repl"
       ]
+    },
+    "linux-dev-certs": {
+      "version": "0.3.0",
+      "commands": [
+        "linux-dev-certs"
+      ]
     }
   }
 }
