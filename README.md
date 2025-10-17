@@ -1,5 +1,5 @@
 # Dotfile
-This repository contains my dotfiles which I use for my day to day usage. 
+This repository contains my dotfiles which I use for my day to day work. 
 I'm a dotnet developer running WSL2 (Ubuntu) professionally and MacOS personally. Therefor there are some environment based configurations.
 
 ## Brew
