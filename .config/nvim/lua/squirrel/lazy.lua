@@ -234,6 +234,7 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				csharp = { "csharpier" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -249,5 +250,5 @@ require("lazy").setup({
 		},
 		build = ":TSUpdate",
 	},
-	"jlcrochet/vim-razor",
+	-- "jlcrochet/vim-razor",
 }, {})

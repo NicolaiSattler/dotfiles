@@ -115,7 +115,7 @@ local servers = {
 	cssls = {},
 	html = {},
 	roslyn = {},
-	-- csharp_ls = {},
+	rzls = {},
 	jsonls = {},
 	yamlls = {},
 }
@@ -123,6 +123,7 @@ local servers = {
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
 	"stylua", -- Used to format Lua code
+	"csharpier", -- Used to format C# code
 })
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

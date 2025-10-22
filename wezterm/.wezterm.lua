@@ -1,7 +1,22 @@
 local wezterm = require("wezterm")
-local config = wezterm.config_builder()
+local config = {}
 
-config.disable_default_key_bindings = true
+if wezterm.config_builder then
+	config = wezterm.config_builder()
+end
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.wsl_domains = {
+		{
+			name = "WSL:Ubuntu",
+			distribution = "Ubuntu",
+			default_cwd = "~",
+			username = "nieksa",
+		},
+	}
+	config.default_domain = "WSL:Ubuntu"
+end
+
 config.color_scheme = "Tokyo Night"
 config.font = wezterm.font({ family = "JetBrains Mono" })
 config.font_size = 10
@@ -13,25 +28,5 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-
-config.keys = {
-	{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' }
-}
-
-function get_os_type()
-	local handle = io.popen("uname -s")
-	if handle then
-		local result = handle:read("*l")
-		handle:close()
-		return result
-	end
-	return nil
-end
-
-local os_type = get_os_type()
-
-if os_type == "Linux" then
-	config.default_domain = "WSL:Ubuntu"
-end
 
 return config
