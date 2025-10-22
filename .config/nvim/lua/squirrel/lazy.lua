@@ -205,6 +205,7 @@ require("lazy").setup({
 		config = true,
 	},
 	-- autoformatter
+	-- TODO move config to seperate file
 	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
@@ -235,11 +236,6 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				csharp = { "csharpier" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
@@ -250,5 +246,4 @@ require("lazy").setup({
 		},
 		build = ":TSUpdate",
 	},
-	-- "jlcrochet/vim-razor",
 }, {})

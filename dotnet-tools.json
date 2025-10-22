@@ -20,6 +20,12 @@
         "dotnet-repl"
       ]
     },
+    "dotnet-format": {
+      "version": "5.1.250801",
+      "commands": [
+        "format"
+      ]
+    },
     "linux-dev-certs": {
       "version": "0.3.0",
       "commands": [
