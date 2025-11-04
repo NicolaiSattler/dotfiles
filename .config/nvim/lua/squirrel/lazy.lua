@@ -138,6 +138,9 @@ require("lazy").setup({
 		dependencies = "nvim-lua/plenary.nvim",
 	},
 
+	-- REST client
+	"mistweaverco/kulala.nvim",
+
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim", opts = {} },
 	{

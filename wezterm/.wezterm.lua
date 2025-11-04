@@ -15,6 +15,10 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		},
 	}
 	config.default_domain = "WSL:Ubuntu"
+
+	config.keys = {
+		{ key = "Insert", mods = "SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
+	}
 end
 
 config.color_scheme = "Tokyo Night"

@@ -10,6 +10,9 @@ dotnet.setup({
 	notifications = {
 		handler = false,
 	},
+	diagnostics = {
+		setqflist = true,
+	},
 	test_runner = {
 		viewmode = "buf",
 		noBuild = true,

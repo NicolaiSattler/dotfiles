@@ -24,6 +24,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, "[S]earch [W]orkspace [S]ymbols")
 		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
+		map("<leader>cn", vim.lsp.buf.rename, "[C]hange [N]ame")
+
 		-- See `:help K` for why this keymap
 		map("K", vim.lsp.buf.hover, "Hover Documentation")
 		map("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
