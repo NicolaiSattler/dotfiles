@@ -107,7 +107,7 @@ _fzf_comprun() {
 eval "$(zoxide init zsh)"
 
 # Add ssh-keys
-eval `keychain --eval ssh id_rsa`
+eval `keychain id_rsa`
 # eval `ssh-agent -s`
 # ssh-add
 # export PATH=$HOME/.local/bin:$PATH
