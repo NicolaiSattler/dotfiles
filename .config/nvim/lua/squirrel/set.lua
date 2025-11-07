@@ -44,7 +44,6 @@ vim.opt.clipboard = "unnamedplus"
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
-vim.opt.colorcolumn = "120"
 vim.opt.isfname:append("@-@")
 
 -- Decrease update time

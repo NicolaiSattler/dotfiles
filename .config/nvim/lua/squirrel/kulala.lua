@@ -27,4 +27,7 @@ kulala.setup({
 		},
 		["Find request"] = false,
 	},
+	opts = {
+		request_timeout = 10000,
+	},
 })
