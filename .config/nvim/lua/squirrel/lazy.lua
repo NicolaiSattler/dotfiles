@@ -94,14 +94,15 @@ require("lazy").setup({
 	},
 
 	-- Autocompletion
-	{ "giuxtaposition/blink-cmp-copilot" },
+	-- { "giuxtaposition/blink-cmp-copilot" },
 	{
 		"saghen/blink.cmp",
 		event = "VimEnter",
 		version = "1.*",
 		dependencies = {
 			-- Snippet Engine
-			"giuxtaposition/blink-cmp-copilot",
+			-- "giuxtaposition/blink-cmp-copilot",
+			"fang2hou/blink-copilot",
 			{
 				"L3MON4D3/LuaSnip",
 				version = "2.*",

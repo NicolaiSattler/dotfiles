@@ -114,6 +114,7 @@ local servers = {
 			diagnostics = { disable = { "missing-fields" } },
 		},
 	},
+	copilot = {},
 	cssls = {},
 	html = {},
 	roslyn = {},
