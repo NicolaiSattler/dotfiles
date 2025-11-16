@@ -23,7 +23,14 @@ end
 
 config.color_scheme = "Tokyo Night"
 config.font = wezterm.font({ family = "JetBrains Mono" })
-config.font_size = 10
+
+if wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin" then
+	config.font_size = 12
+else
+	-- Linux / Windows
+	config.font_size = 10
+end
+
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_padding = {
