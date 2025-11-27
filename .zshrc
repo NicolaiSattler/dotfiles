@@ -1,4 +1,6 @@
 export DOTNET_ROOT=~/.dotnet
+export ASPNETCORE_ENVIRONMENT=Development
+export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs
 export PATH="$DOTNET_ROOT:~/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
 export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'

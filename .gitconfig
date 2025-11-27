@@ -3,11 +3,11 @@
 	preloadindex = true
 	fscache = true
 	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RF
+	pager = delta
 	safecrlf = false
 
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
 
 [delta]
 	light = false
@@ -30,6 +30,7 @@
 
 [merge]
 	tool = nvimdiff
+	conflictstyle = diff3
 
 [mergetool "nvimdiff"]
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
