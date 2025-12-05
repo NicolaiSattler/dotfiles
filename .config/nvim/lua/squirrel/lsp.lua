@@ -116,11 +116,9 @@ local servers = {
 	},
 	cssls = {},
 	html = {},
-	azure_pipelines_ls = {},
 	roslyn = {},
 	rzls = {},
 	jsonls = {},
-	yamlls = {},
 }
 
 local ensure_installed = vim.tbl_keys(servers or {})

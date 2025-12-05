@@ -24,6 +24,9 @@ Install the SDK with:
 sudo ./dotnet-install.sh  --channel 8.0 --install-dir /usr/lib/dotnet
 ```
 
+> change the channel to download other versions.
+or download vi [dotnet 8 sdk](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.300-macos-arm64-installer)
+
 ## SSL with developer certificates
 To trust dev-cert on linux run
 
@@ -32,8 +35,6 @@ dotnet tool update -g linux-dev-certs
 dotnet linux-dev-certs install
 
 ```
-> change the channel to download other versions.
-or download vi [dotnet 8 sdk](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.300-macos-arm64-installer)
 
 ## ZSH and Starship
 Install the following command line utilties:

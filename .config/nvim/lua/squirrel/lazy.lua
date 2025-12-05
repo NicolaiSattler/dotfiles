@@ -15,10 +15,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	--git
-	"lewis6991/gitsigns.nvim",
+	{
+		"lewis6991/gitsigns.nvim",
+		event = "InsertEnter",
+	},
 
 	-- autodetect tabstop and shiftwidth
-	"tpope/vim-sleuth",
+	{
+		"tpope/vim-sleuth",
+		event = "InsertEnter",
+	},
 
 	-- lsp
 	{
@@ -48,7 +54,6 @@ require("lazy").setup({
 			"saghen/blink.cmp",
 		},
 	},
-	"Decodetalkers/csharpls-extended-lsp.nvim",
 	--dotnet <3
 	{
 		"GustavEikaas/easy-dotnet.nvim",
@@ -117,12 +122,16 @@ require("lazy").setup({
 	},
 
 	-- REST client
-	"mistweaverco/kulala.nvim",
+	{
+		"mistweaverco/kulala.nvim",
+		ft = "http",
+	},
 
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim", opts = {} },
 	{
 		"folke/tokyonight.nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
 			---@diagnostic disable-next-line: missing-fields

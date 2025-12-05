@@ -113,12 +113,6 @@ eval `keychain id_rsa`
 # eval `ssh-agent -s`
 # ssh-add
 # export PATH=$HOME/.local/bin:$PATH
-#
-
-#carapace
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
 
 #starship
 eval "$(starship init zsh)"

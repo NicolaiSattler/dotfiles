@@ -36,10 +36,19 @@ vim.opt.smartcase = true
 vim.opt.mouse = "a"
 
 vim.opt.swapfile = false
--- Sync clipboard between OS and Neovim.
-vim.opt.clipboard = "unnamedplus"
--- disable slow clipboard provider
--- vim.g.loaded_clipboard_provider = 1
+
+--clipboard
+vim.api.nvim_create_autocmd({ "FocusGained" }, {
+	pattern = { "*" },
+	command = [[call setreg("@", getreg("+"))]],
+})
+
+-- sync with system clipboard on focus
+vim.api.nvim_create_autocmd({ "FocusLost" }, {
+	pattern = { "*" },
+	command = [[call setreg("+", getreg("@"))]],
+})
+vim.opt.clipboard = ""
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
