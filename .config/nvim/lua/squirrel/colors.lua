@@ -1,5 +1,5 @@
 -- vim.cmd.colorscheme 'rose-pine'
-vim.cmd.colorscheme 'tokyonight-night'
+vim.cmd.colorscheme("tokyonight-night")
 -- Set background to transparent
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 
@@ -16,8 +16,8 @@ end
 
 local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
 
-require('lualine').setup {
-  opt = function (_, opts)
+require("lualine").setup({
+  opt = function(_, opts)
     local trouble = require("trouble")
     local symbols = trouble.statusline({
       mode = "lsp_document_symbols",
@@ -36,9 +36,9 @@ require('lualine').setup {
   end,
   options = {
     icons_enabled = true,
-    theme = 'auto',
-    component_separators = '',
-    section_separators = '',
+    theme = "auto",
+    component_separators = "",
+    section_separators = "",
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -50,14 +50,14 @@ require('lualine').setup {
       statusline = 1000,
       tabline = 1000,
       winbar = 1000,
-    }
+    },
   },
   sections = {
-    lualine_a = {'mode' },
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = { macro_recording, 'buffers'},
-    lualine_x = { job_indicator, 'encoding','filetype' },
-    lualine_z = {}
+    lualine_a = { "mode" },
+    lualine_b = { "branch", "diff", "diagnostics" },
+    lualine_c = { macro_recording, "buffers" },
+    lualine_x = { job_indicator, "encoding", "filetype" },
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = {},
@@ -65,12 +65,12 @@ require('lualine').setup {
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = {},
   },
   tabline = {},
   winbar = {},
   extensions = {
     "man",
-    "lazy"
-  }
-}
+    "lazy",
+  },
+})

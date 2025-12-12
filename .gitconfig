@@ -1,5 +1,5 @@
 [core]
-	editor = nvim
+	editor = nvim -u NONE -n
 	preloadindex = true
 	fscache = true
 	autocrlf = input
@@ -10,13 +10,13 @@
 	diffFilter = delta --color-only
 
 [delta]
-	light = false
-	navigate = true
-	side-by-side = true
-	line-numbers = true
-	file-style = bold yellow ul
-	file-decoration-style = none
-	hunk-header-style = file line-number syntax
+    light = false
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-style = file line-number syntax
 
 [user]
 	name = Nicolai Sattler
@@ -33,7 +33,7 @@
 	conflictstyle = diff3
 
 [mergetool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -u NONE -n -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'
 
 [mergetool "vscode"]
     cmd = code --wait $MERGED

@@ -4,7 +4,6 @@ local config = {}
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
-
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.wsl_domains = {
 		{
@@ -21,9 +20,6 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	}
 end
 
-config.color_scheme = "Tokyo Night"
-config.font = wezterm.font({ family = "JetBrains Mono" })
-
 if wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin" then
 	config.font_size = 12
 else
@@ -31,7 +27,13 @@ else
 	config.font_size = 10
 end
 
+config.term = "xterm-256color"
+config.color_scheme = "Wombat"
+config.disable_default_key_bindings = true
 config.enable_tab_bar = false
+config.font = wezterm.font({ family = "JetBrains Mono" })
+config.keys = {}
+config.key_tables = {}
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 0,

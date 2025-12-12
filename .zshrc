@@ -5,22 +5,17 @@ export PATH="$DOTNET_ROOT:~/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/
 export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
+export EZA_CONFIG="$HOME/.config/eza/"
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-zstyle ':omz:update' mode reminder                      # ow my zsh update: remind me to update
 
 bindkey -v                                              # enable vi mode
 bindkey jj vi-cmd-mode
 bindkey '^ ' autosuggest-execute
 
-plugins=(git z fzf vi-mode)
+plugins=(git vi-mode)
 
-ZSH_THEME="philips" # set by `omz`
-# ENABLE_CORRECTION="true"
-
-source $ZSH/oh-my-zsh.sh
 # https://github.com/zsh-users/zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.cargo/env
@@ -75,6 +70,30 @@ function help() {
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+# Tokyo Night Moon
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none \
+  --color=bg+:#283457 \
+  --color=bg:#16161e \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
@@ -105,15 +124,17 @@ _fzf_comprun() {
   esac
 }
 
-#zoxide
-eval "$(zoxide init zsh)"
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 # Add ssh-keys
 eval `keychain id_rsa`
-# eval `ssh-agent -s`
-# ssh-add
-# export PATH=$HOME/.local/bin:$PATH
 
-#starship
-eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
+eval "$(starship init zsh)"
