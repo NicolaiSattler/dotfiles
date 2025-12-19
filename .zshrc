@@ -37,8 +37,8 @@ alias vw='rg --color=always --line-number --no-heading --smart-case "${*:-}" | \
       --preview-window "up,60%,border-bottom,+{2}+3/3,~3" \
       --bind "enter:become(nvim {1} +{2})"'
 
-alias gc="git commit -m"
-alias gca="git commit -a -m"
+alias gc="git commit"
+alias gca="git commit --amend"
 alias gcan="git commit -a --amend --no-edit"
 alias gp="git push origin HEAD"
 alias gpu="git pull origin"
