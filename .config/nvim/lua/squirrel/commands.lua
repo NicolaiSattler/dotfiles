@@ -9,5 +9,6 @@ vim.api.nvim_create_user_command("Bda", function()
 end, {})
 
 vim.api.nvim_create_user_command("Code", function()
+	vim.notify("Opened VSCode in current directory", vim.log.levels.INFO)
 	vim.fn.jobstart({ "code", "." }, { detach = true })
 end, {})

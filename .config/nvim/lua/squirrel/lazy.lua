@@ -101,6 +101,7 @@ require("lazy").setup({
   -- Autocompletion
   require("squirrel.blink-cmp"),
   require("squirrel.copilot"),
+  require("squirrel.sidekick"),
 
   -- file explorer
   {
