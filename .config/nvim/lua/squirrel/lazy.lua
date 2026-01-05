@@ -20,6 +20,8 @@ require("lazy").setup({
     event = "InsertEnter",
   },
 
+  require("squirrel.lazygit"),
+
   -- autodetect tabstop and shiftwidth
   {
     "tpope/vim-sleuth",
