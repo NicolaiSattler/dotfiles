@@ -9,4 +9,7 @@ return {
       panel = { enabled = false },
     })
   end,
+  dependencies = {
+    "github/copilot.vim",
+  },
 }
