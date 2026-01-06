@@ -34,3 +34,4 @@ zed/
 .config/
 !.config/nvim/**
 !.config/bat/
+.config/gh/hosts.yml
