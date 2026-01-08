@@ -20,6 +20,8 @@ require("lazy").setup({
     event = "InsertEnter",
   },
 
+  require("squirrel.lensline"),
+
   require("squirrel.lazygit"),
 
   -- autodetect tabstop and shiftwidth
@@ -65,8 +67,6 @@ require("lazy").setup({
       "nvim-telescope/telescope.nvim",
     },
   },
-  -- start window
-  "folke/twilight.nvim",
 
   -- noice - pretty commands :o
   {

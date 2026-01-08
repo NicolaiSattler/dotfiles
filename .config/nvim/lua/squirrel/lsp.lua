@@ -113,10 +113,14 @@ local servers = {
       diagnostics = { disable = { "missing-fields" } },
     },
   },
-  copilot = {},
+  copilot = {
+    init_options = {
+      auth_provider_url = "https://stichting-bkr.ghe.com",
+    },
+  },
   cssls = {},
   html = {},
-  roslyn = {},
+  -- roslyn = {},
   jsonls = {},
 }
 
