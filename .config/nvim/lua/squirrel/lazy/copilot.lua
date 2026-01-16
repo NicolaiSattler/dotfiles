@@ -2,6 +2,9 @@ return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
   event = "InsertEnter",
+  dependencies = {
+    "github/copilot.vim",
+  },
   config = function()
     require("copilot").setup({
       auth_provider_url = "https://stichting-bkr.ghe.com",
@@ -9,7 +12,4 @@ return {
       panel = { enabled = false },
     })
   end,
-  dependencies = {
-    "github/copilot.vim",
-  },
 }

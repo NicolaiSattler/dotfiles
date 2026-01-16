@@ -3,9 +3,7 @@ return {
   lazy = true,
   ft = { "http", "rest" },
   config = function()
-    local kulala = require("kulala.config")
-
-    kulala.setup({
+    require("kulala.config").setup({
       global_keymaps = true,
       global_keymaps_prefix = "<leader>K",
       kulala_keymaps_prefix = "",

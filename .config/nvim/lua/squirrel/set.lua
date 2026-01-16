@@ -59,6 +59,10 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
+-- make undotree even better
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = "menuone,noselect"
 
