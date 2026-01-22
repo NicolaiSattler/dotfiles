@@ -4,7 +4,6 @@ return {
   dependencies = {
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
-    "leoluz/nvim-dap-go",
   },
   config = function()
     require("dapui").setup({

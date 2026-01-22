@@ -103,9 +103,6 @@ return {
 
     dap.configurations.cs = config
 
-    require("dap-go").setup()
-    --require('dap.ext.vscode').load_launchjs({}, nil)
-
     vim.keymap.set("n", "<F5>", function()
       require("dap").continue()
     end, { desc = "continue" })

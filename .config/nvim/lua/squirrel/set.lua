@@ -14,6 +14,7 @@ vim.opt.termguicolors = true
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.numberwidth = 1
 vim.opt.number = true
 vim.opt.wrap = true
 
@@ -59,8 +60,12 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
--- make undotree even better
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- create temp folder
+vim.fn.mkdir(vim.fn.expand("~/.nvim-tmp"), "p")
+
+vim.opt.backupdir = vim.fn.expand("~/.nvim-tmp")
+vim.opt.directory = vim.fn.expand("~/.nvim-tmp")
+vim.opt.undodir = vim.fn.expand("~/.nvim-tmp")
 vim.opt.undofile = true
 
 -- Set completeopt to have a better completion experience
