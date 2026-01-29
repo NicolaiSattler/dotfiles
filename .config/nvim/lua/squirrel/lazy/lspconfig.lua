@@ -19,7 +19,9 @@ return {
         map("gd", function()
           vim.lsp.buf.definition()
         end, "[g]oto [d]efinition")
-        -- map('gr', function() require('telescope.builtin').lsp_references(require('telescope.themes').get_ivy()) end, '[g]oto [r]eferences')
+        map("gr", function()
+          vim.lsp.buf.references()
+        end, "[g]oto [r]eferences")
         map("gi", function()
           vim.lsp.buf.implementation()
         end, "[g]oto [i]mplementation")
@@ -123,14 +125,8 @@ return {
           diagnostics = { disable = { "missing-fields" } },
         },
       },
-      copilot = {
-        init_options = {
-          auth_provider_url = "https://stichting-bkr.ghe.com",
-        },
-      },
       cssls = {},
       html = {},
-      -- roslyn = {},
       jsonls = {},
     }
 

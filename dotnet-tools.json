@@ -1,36 +1,36 @@
 {
-  "version": 1,
-  "isRoot": true,
-  "tools": {
-    "dotnet-ef": {
-      "version": "8.0.2",
-      "commands": [
-        "dotnet-ef"
-      ]
-    },
-    "dotnet-outdated-tool": {
-      "version": "4.6.4",
-      "commands": [
-        "dotnet-outdated-tool"
-      ]
-    },
-    "dotnet-repl": {
-      "version": "0.1.126",
-      "commands": [
-        "dotnet-repl"
-      ]
-    },
-    "dotnet-format": {
-      "version": "5.1.250801",
-      "commands": [
-        "format"
-      ]
-    },
-    "linux-dev-certs": {
-      "version": "0.3.0",
-      "commands": [
-        "linux-dev-certs"
-      ]
+    "version": 1,
+    "isRoot": true,
+    "tools": {
+        "dotnet-ef": {
+            "version": "8.0.2",
+            "commands": [
+                "dotnet-ef"
+            ]
+        },
+        "dotnet-outdated-tool": {
+            "version": "4.6.4",
+            "commands": [
+                "dotnet-outdated-tool"
+            ]
+        },
+        "dotnet-repl": {
+            "version": "0.1.126",
+            "commands": [
+                "dotnet-repl"
+            ]
+        },
+        "dotnet-format": {
+            "version": "5.1.250801",
+            "commands": [
+                "format"
+            ]
+        },
+        "linux-dev-certs": {
+            "version": "0.3.0",
+            "commands": [
+                "linux-dev-certs"
+            ]
+        }
     }
-  }
 }

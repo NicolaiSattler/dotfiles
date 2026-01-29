@@ -1,6 +1,6 @@
 return {
   "jiaoshijie/undotree",
-  lazy = true,
+  event = "InsertEnter",
   dependencies = "nvim-lua/plenary.nvim",
   config = function()
     local ut = require("undotree")
