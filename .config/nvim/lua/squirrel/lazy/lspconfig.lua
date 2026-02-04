@@ -102,6 +102,7 @@ return {
         },
       },
       virtual_text = {
+        virt_text_pos = "eol_right_align",
         source = "if_many",
         spacing = 2,
         format = function(diagnostic)
