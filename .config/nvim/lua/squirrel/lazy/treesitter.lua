@@ -1,67 +1,92 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      -- { dir = "~/plugins/tree-sitter-lua" },
+      { "reasonml-editor/tree-sitter-reason" },
+    },
+    build = ":TSUpdate",
+    branch = "main",
+    lazy = false,
+    config = function()
+      local group = vim.api.nvim_create_augroup("custom-treesitter", { clear = true })
+
+      require("nvim-treesitter").setup({
+        ensure_install = {
+          "core",
+          "stable",
+          "lua",
+          "c_sharp",
+          "javascript",
+          "typescript",
+          -- Elixir langs
+          "elixir",
+          "heex",
+        },
+      })
+
+      local syntax_on = {
+        elixir = true,
+        php = true,
+      }
+
+      vim.api.nvim_create_autocmd("FileType", {
+        group = group,
+        callback = function(args)
+          local bufnr = args.buf
+          local ok, parser = pcall(vim.treesitter.get_parser, bufnr)
+          if not ok or not parser then
+            return
+          end
+          pcall(vim.treesitter.start)
+
+          local ft = vim.bo[bufnr].filetype
+          if syntax_on[ft] then
+            vim.bo[bufnr].syntax = "on"
+          end
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        group = group,
+        pattern = "TSUpdate",
+        callback = function()
+          local parsers = require("nvim-treesitter.parsers")
+
+          parsers.cram = {
+            tier = 0,
+
+            ---@diagnostic disable-next-line: missing-fields
+            install_info = {
+              path = "~/git/tree-sitter-cram",
+              files = { "src/parser.c" },
+            },
+          }
+
+          parsers.reason = {
+            tier = 0,
+
+            ---@diagnostic disable-next-line: missing-fields
+            install_info = {
+              url = "https://github.com/reasonml-editor/tree-sitter-reason",
+              files = { "src/parser.c", "src/scanner.c" },
+              branch = "master",
+            },
+          }
+
+          parsers.blade = {
+            tier = 0,
+
+            ---@diagnostic disable-next-line: missing-fields
+            install_info = {
+              url = "https://github.com/EmranMR/tree-sitter-blade",
+              files = { "src/parser.c" },
+              branch = "main",
+            },
+            filetype = "blade",
+          }
+        end,
+      })
+    end,
   },
-  build = ":TSUpdate",
-  config = function()
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = { "lua", "python", "tsx", "javascript", "typescript", "vimdoc", "vim", "bash", "c_sharp" },
-      highlight = { enable = true },
-      indent = { enable = true },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<c-space>",
-          node_incremental = "<c-space>",
-          scope_incremental = "<c-s>",
-          node_decremental = "<M-space>",
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ["aa"] = "@parameter.outer",
-            ["ia"] = "@parameter.inner",
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ["]m"] = "@function.outer",
-            ["]]"] = "@class.outer",
-          },
-          goto_next_end = {
-            ["]M"] = "@function.outer",
-            ["]["] = "@class.outer",
-          },
-          goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
-          },
-          goto_previous_end = {
-            ["[M"] = "@function.outer",
-            ["[]"] = "@class.outer",
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ["<leader>a"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["<leader>A"] = "@parameter.inner",
-          },
-        },
-      },
-    })
-  end,
 }
