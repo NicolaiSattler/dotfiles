@@ -9,8 +9,8 @@ return {
           name = "base",
           providers = {
             { name = "usages", enabled = true, include = { "refs", "defs", "impls" }, breakdown = true },
-            { name = "diagnostics", enabled = true, min_level = "HINT" },
-            { name = "complexity", enabled = true },
+            { name = "diagnostics", enabled = false, min_level = "HINT" },
+            { name = "complexity", enabled = false },
             { name = "last_author", enabled = true },
           },
           style = { render = "all", placement = "above" },

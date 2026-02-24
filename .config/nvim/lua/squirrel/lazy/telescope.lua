@@ -124,6 +124,11 @@ return {
     vim.keymap.set("n", "<leader>r", function()
       require("telescope.builtin").registers({})
     end, { desc = "Show [r]egisters", noremap = true, silent = true })
-    --vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+    vim.keymap.set(
+      "n",
+      "<leader>ss",
+      require("telescope.builtin").lsp_dynamic_workspace_symbols,
+      { desc = "[S]earch [S]ymbols" }
+    )
   end,
 }

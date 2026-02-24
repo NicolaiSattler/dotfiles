@@ -11,6 +11,7 @@ return {
       lsp = {
         enabled = true,
         roslynator_enabled = true,
+        auto_refresh_codelens = false,
       },
       server = {
         log_level = "Information",
