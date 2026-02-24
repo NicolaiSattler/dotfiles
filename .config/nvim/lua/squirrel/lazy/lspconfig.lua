@@ -31,7 +31,9 @@ return {
         map("<leader>sws", function()
           vim.lsp.buf.workspace_symbol()
         end, "[S]earch [W]orkspace [S]ymbols")
-        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", "n")
+        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", "x")
 
         map("<leader>cn", vim.lsp.buf.rename, "[C]hange [N]ame")
 
