@@ -1,5 +1,5 @@
 export DOTNET_ROOT=~/.dotnet
-export PATH="$DOTNET_ROOT:~/.aspire/bin:~/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
+export PATH="$DOTNET_ROOT:$HOME/.aspire/bin:~/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
 export GH_HOST=stichting-bkr.ghe.com
 export ASPNETCORE_ENVIRONMENT=Development
 export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs
@@ -21,40 +21,6 @@ plugins=(git vi-mode)
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.cargo/env
 
-alias ..='cd ..'
-alias ll='eza -alh --icons --git'
-alias lt="eza --tree --level=2 --long --icons --git"
-alias myip='curl http://ipecho.net/plain; echo'
-alias bathelp='bat --plain --language=help'
-alias vim=$(brew --prefix)'/bin/nvim'
-alias ff='firefox > /dev/null 2>&1 &'
-alias kp='ps aux | fzf | awk "{print \$2}" | xargs kill -9'
-alias v='fd --type f --hidden --exclude .git | fzf-tmux -p | xargs nvim'
-alias vw='rg --color=always --line-number --no-heading --smart-case "${*:-}" | \
-  fzf --ansi \
-      --color "hl:-1:underline,hl+:-1:underline:reverse" \
-      --delimiter : \
-      --preview "bat --color=always {1} --highlight-line {2}" \
-      --preview-window "up,60%,border-bottom,+{2}+3/3,~3" \
-      --bind "enter:become(nvim {1} +{2})"'
-
-alias gc="git commit"
-alias gca="git commit --amend"
-alias gcan="git commit -a --amend --no-edit"
-alias gp="git push origin HEAD"
-alias gpu="git pull origin"
-alias gf="git fetch"
-alias gs="git status"
-alias gl="git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit | bat -l gitlog"
-alias gls='git log --graph --topo-order --abbrev-commit --pretty=format:"%h - %s (%ar) <%an>" | fzf-tmux | awk '"'"'{print $1}'"'"' | xargs git show'
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias gco="git checkout"
-alias gb='branch=$(git branch -a | fzf-tmux | xargs echo -n) && [[ $branch == remotes/origin/* ]] && git checkout ${branch#remotes/origin/} || git checkout $branch'
-alias gba='git branch -a'
-alias gadd='git add'
-alias ga='git add -p'
-alias gcoall='git checkout -- .'
 
 function gitcleanup() {
     git branch | grep -v "main" | xargs git branch -D
@@ -64,7 +30,9 @@ function help() {
     "$@" --help 2>&1 | bathelp
 }
 
-#FZF
+# Load aliases
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+# Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #Use fd instead of find
