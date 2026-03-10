@@ -1,5 +1,5 @@
-export DOTNET_ROOT=~/.dotnet
-export PATH="$DOTNET_ROOT:$HOME/.aspire/bin:~/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH" >> ~/.zshrc
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH="$DOTNET_ROOT:$HOME/.aspire/bin:$HOME/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH"
 export GH_HOST=stichting-bkr.ghe.com
 export ASPNETCORE_ENVIRONMENT=Development
 export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs
