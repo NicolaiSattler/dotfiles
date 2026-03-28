@@ -8,26 +8,26 @@ return {
       args = { "--interpreter=vscode" },
     }
 
-    local request = function()
-      local path =
-        vim.fn.input({ prompt = "Path to dll: ", default = vim.fn.getcwd() .. "/bin/Debug/", completion = "file" })
-
-      return path
-    end
-
-    vim.g.dotnet_get_dll_path = function()
-      if vim.g["dotnet_last_dll_path"] == nil then
-        vim.g["dotnet_last_dll_path"] = request()
-      else
-        if
-          vim.fn.confirm("Do you want to change the path to dll?\n" .. vim.g["dotnet_last_dll_path"], "&yes\n&no", 2)
-          == 1
-        then
-          vim.g["dotnet_last_dll_path"] = request()
-        end
-      end
-      return vim.g["dotnet_last_dll_path"]
-    end
+    -- local request = function()
+    --   local path =
+    --     vim.fn.input({ prompt = "Path to dll: ", default = vim.fn.getcwd() .. "/bin/Debug/", completion = "file" })
+    --
+    --   return path
+    -- end
+    --
+    -- vim.g.dotnet_get_dll_path = function()
+    --   if vim.g["dotnet_last_dll_path"] == nil then
+    --     vim.g["dotnet_last_dll_path"] = request()
+    --   else
+    --     if
+    --       vim.fn.confirm("Do you want to change the path to dll?\n" .. vim.g["dotnet_last_dll_path"], "&yes\n&no", 2)
+    --       == 1
+    --     then
+    --       vim.g["dotnet_last_dll_path"] = request()
+    --     end
+    --   end
+    --   return vim.g["dotnet_last_dll_path"]
+    -- end
 
     local pickers = require("telescope.pickers")
     local finders = require("telescope.finders")
@@ -78,26 +78,26 @@ return {
           end)
         end,
       },
-      {
-        type = "coreclr",
-        name = "launch - netcoredbg",
-        request = "launch",
-        console = "integratedTerminal",
-        justMyCode = false,
-        stopAtEntry = false,
-        program = function()
-          if vim.fn.confirm("Recompile first?", "&yes\n&no", 2) == 1 then
-            vim.g.dotnet_build_project()
-          end
-          return vim.g.dotnet_get_dll_path()
-        end,
-        cwd = function()
-          return vim.fn.input("Workspace folder: ", vim.fn.getcwd() .. "/", "file")
-        end,
-        env = {
-          ASPNETCORE_ENVIRONMENT = "Development",
-        },
-      },
+      -- {
+      --   type = "coreclr",
+      --   name = "launch - netcoredbg",
+      --   request = "launch",
+      --   console = "integratedTerminal",
+      --   justMyCode = false,
+      --   stopAtEntry = false,
+      --   program = function()
+      --     if vim.fn.confirm("Recompile first?", "&yes\n&no", 2) == 1 then
+      --       vim.g.dotnet_build_project()
+      --     end
+      --     return vim.g.dotnet_get_dll_path()
+      --   end,
+      --   cwd = function()
+      --     return vim.fn.input("Workspace folder: ", vim.fn.getcwd() .. "/", "file")
+      --   end,
+      --   env = {
+      --     ASPNETCORE_ENVIRONMENT = "Development",
+      --   },
+      -- },
     }
 
     dap.configurations.cs = config
@@ -126,30 +126,5 @@ return {
     vim.keymap.set("n", "<leader>dr", function()
       require("dap").repl.open()
     end, { desc = "open REPL" })
-
-    vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#993939" })
-    vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#61afef" })
-    vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379" })
-
-    vim.fn.sign_define(
-      "DapBreakpoint",
-      { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-    )
-    vim.fn.sign_define(
-      "DapBreakpointCondition",
-      { text = "ﳁ", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-    )
-    vim.fn.sign_define(
-      "DapBreakpointRejected",
-      { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
-    )
-    vim.fn.sign_define(
-      "DapLogPoint",
-      { text = "", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
-    )
-    vim.fn.sign_define(
-      "DapStopped",
-      { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
-    )
   end,
 }
