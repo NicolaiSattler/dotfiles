@@ -21,5 +21,8 @@ return {
       },
       panel = { enabled = false },
     })
+    
+    -- Enable Copilot LSP for Neovim 0.11+
+    vim.lsp.enable("copilot")
   end,
 }
