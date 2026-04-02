@@ -4,6 +4,12 @@ local config = {}
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
+
+-- config.term = "xterm-256color"
+config.disable_default_key_bindings = true
+config.keys = {}
+config.key_tables = {}
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.wsl_domains = {
 		{
@@ -20,29 +26,35 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	}
 end
 
+config.color_scheme = "tokyonight_moon"
+config.font = wezterm.font({ family = "JetBrains Mono", weight = 700 })
+
 if wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin" then
 	config.font_size = 12
+	config.color_scheme_dirs = { "$HOME/.config/wezterm/colors" }
 else
 	-- Linux / Windows
-	config.font_size = 10
+	config.font_size = 11
+	config.font_rules = {
+		{
+			intensity = "Half",
+			italic = true,
+			font = wezterm.font({ family = "JetBrains Mono", weight = 600 }),
+		},
+	}
+	config.color_scheme_dirs = { "C:/Users/NicolaiS/colors" }
 end
 
-config.term = "xterm-256color"
-config.color_scheme = "Wombat"
-config.disable_default_key_bindings = true
+config.adjust_window_size_when_changing_font_size = false
 config.enable_tab_bar = false
-config.font = wezterm.font({ family = "JetBrains Mono" })
-config.keys = {}
-config.key_tables = {}
 config.window_decorations = "RESIZE"
+config.initial_cols = 30
+config.initial_rows = 120
 config.window_padding = {
 	left = 0,
 	right = 0,
 	top = 0,
 	bottom = 0,
 }
-config.adjust_window_size_when_changing_font_size = false
-config.initial_rows = 30
-config.initial_cols = 120
 
 return config
