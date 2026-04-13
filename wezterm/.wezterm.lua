@@ -27,10 +27,10 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 config.color_scheme = "tokyonight_moon"
-config.font = wezterm.font({ family = "JetBrains Mono", weight = 700 })
 
 if wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin" then
 	config.font_size = 12
+	config.font = wezterm.font({ family = "JetBrains Mono", weight = 700 })
 	config.color_scheme_dirs = { "$HOME/.config/wezterm/colors" }
 else
 	-- Linux / Windows

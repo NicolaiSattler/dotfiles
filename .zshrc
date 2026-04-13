@@ -1,12 +1,15 @@
 export DOTNET_ROOT=$HOME/.dotnet
-export PATH="$DOTNET_ROOT:$HOME/.aspire/bin:$HOME/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH"
 export GITHUB_HOST=stichting-bkr.ghe.com
-export ASPNETCORE_ENVIRONMENT=Development
 export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs
+export EZA_CONFIG="$HOME/.config/eza/"
 export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
-export EZA_CONFIG="$HOME/.config/eza/"
+
+export ASPNETCORE_ENVIRONMENT=Development
+export ENV="test"                                       #required by playwright
+
+export PATH="$HOME/.local/bin:$DOTNET_ROOT:$HOME/.aspire/bin:$HOME/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH"
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -39,7 +42,7 @@ function help() {
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-# Tokyo Night Moon
+# Tokyo Night Night
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --highlight-line \
   --info=inline-right \

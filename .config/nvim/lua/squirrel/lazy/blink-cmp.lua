@@ -60,7 +60,7 @@ return {
       ghost_text = { enabled = true, show_with_menu = true },
     },
     sources = {
-      default = { "lsp", "path", "snippets", "lazydev", "copilot", "buffer", "easy-dotnet" },
+      default = { "lsp", "path", "lazydev", "copilot", "buffer", "easy-dotnet", "snippets" },
       providers = {
         copilot = { name = "copilot", module = "blink-copilot", async = true },
         lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
