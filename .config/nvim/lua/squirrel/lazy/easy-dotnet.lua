@@ -20,6 +20,7 @@ return {
         roslynator_enabled = true, -- Automatically enable roslynator analyzer
         easy_dotnet_analyzer_enabled = true, -- Enable roslyn analyzer from easy-dotnet-server
         auto_refresh_codelens = false,
+        set_fold_expr = false,
         analyzer_assemblies = {}, -- Any additional roslyn analyzers you might use like SonarAnalyzer.CSharp
         config = {},
       },

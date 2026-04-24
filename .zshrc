@@ -6,6 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
 
+export ASPIRE_CLI_TELEMETRY_OPTOUT=1
 export ASPNETCORE_ENVIRONMENT=Development
 export ENV="test"                                       #required by playwright
 
@@ -37,6 +38,9 @@ function help() {
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 # Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Unbind FZF Ctrl-R (atuin will handle history search)
+bindkey -r '^R'
 
 #Use fd instead of find
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
