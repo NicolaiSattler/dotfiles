@@ -8,7 +8,12 @@ return {
   ---@module 'dap-view'
   opts = {},
   config = function()
-    require("dap-view").setup({})
+    require("dap-view").setup({
+      winbar = {
+        sections = { "scopes", "threads", "watches", "exceptions", "breakpoints", "repl", "console" },
+        default_section = "scopes",
+      },
+    })
     require("squirrel.dap_signs").setup()
 
     local dap = require("dap")

@@ -3,16 +3,14 @@ gui:
     activeBorderColor:
       - green
       - bold
-  showIcons: true
-
+  showIcons: false
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
-    useConfig: true
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+      useConfig: true
   commit:
     signOff: false
-
 keybinding:
   universal:
     quit: 'q'

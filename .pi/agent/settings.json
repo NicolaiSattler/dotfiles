@@ -1,0 +1,19 @@
+{
+    "lastChangelogVersion": "0.70.5",
+    "defaultProvider": "github-copilot",
+    "defaultModel": "claude-haiku-4.5",
+    "enableInstallTelemetry": false,
+    "defaultThinkingLevel": "medium",
+    "thinkingBudgets": {
+        "minimal": 1024,
+        "low": 4096,
+        "medium": 10240,
+        "high": 32768
+    },
+    "warnings": {
+        "anthropicExtraUsage": false
+    },
+    "packages": [
+        "pi-skills"
+    ]
+}
