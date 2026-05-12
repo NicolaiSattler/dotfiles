@@ -71,6 +71,9 @@ vim.opt.undofile = true
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = "menuone,noselect"
 
+--session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 --netrw
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

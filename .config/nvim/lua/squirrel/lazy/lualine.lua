@@ -15,7 +15,7 @@ return {
       return ""
     end
 
-    local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
+    local dotnet = require("easy-dotnet")
 
     require("lualine").setup({
       opt = function(_, opts)
@@ -55,7 +55,15 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { macro_recording, "buffers" },
-        lualine_x = { job_indicator, "filetype" },
+        lualine_x = {
+          dotnet.lualine.jobs,
+          {
+            dotnet.lualine.run_status,
+            color = dotnet.lualine.run_status_color,
+            on_click = dotnet.lualine.run_status_click,
+          },
+          "filetype",
+        },
         lualine_z = {},
       },
       inactive_sections = {
