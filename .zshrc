@@ -7,6 +7,7 @@ export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
 
 export ASPIRE_CLI_TELEMETRY_OPTOUT=1
+export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 export ASPNETCORE_ENVIRONMENT=Development
 export ENV="test"                                       #required by playwright
 

@@ -5,6 +5,8 @@ vim.g.maplocalleader = " "
 vim.opt.guicursor = ""
 
 vim.o.cursorline = true
+vim.o.cursorlineopt = "both"
+
 vim.o.confirm = true
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
@@ -35,6 +37,8 @@ vim.opt.smartcase = true
 
 -- Enable mouse mode
 vim.opt.mouse = "a"
+vim.opt.guicursor =
+  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait300-blinkoff200-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 vim.opt.swapfile = false
 
