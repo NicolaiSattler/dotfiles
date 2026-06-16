@@ -11,5 +11,10 @@ return {
         request_timeout = 10000,
       },
     })
+    vim.filetype.add({
+      extension = {
+        ["http"] = "http",
+      },
+    })
   end,
 }

@@ -6,4 +6,12 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  opt = {
+    workspaces = {
+      {
+        name = "default",
+        path = "/mnt/d/iCloudDrive/iCloud~md~obsidian/Vault",
+      },
+    },
+  },
 }

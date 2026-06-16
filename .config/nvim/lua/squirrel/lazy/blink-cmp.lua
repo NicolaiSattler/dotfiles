@@ -60,17 +60,10 @@ return {
       ghost_text = { enabled = true, show_with_menu = true },
     },
     sources = {
-      default = { "lsp", "path", "lazydev", "copilot", "buffer", "easy-dotnet", "snippets" },
+      default = { "lsp", "path", "lazydev", "copilot", "buffer", "snippets" },
       providers = {
         copilot = { name = "copilot", module = "blink-copilot", async = true },
         lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
-        ["easy-dotnet"] = {
-          name = "easy-dotnet",
-          enabled = true,
-          module = "easy-dotnet.completion.blink",
-          score_offset = 1000,
-          async = true,
-        },
       },
     },
     snippets = { preset = "luasnip" },

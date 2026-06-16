@@ -9,6 +9,8 @@ vim.o.cursorlineopt = "both"
 
 vim.o.confirm = true
 vim.o.list = true
+vim.o.spell = true
+vim.o.spelllang = "en_us,nl"
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- check if terminal supports this

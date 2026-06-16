@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.74.0",
+  "lastChangelogVersion": "0.78.0",
   "defaultProvider": "github-copilot",
   "defaultModel": "claude-sonnet-4.6",
   "enableInstallTelemetry": false,
@@ -14,13 +14,18 @@
     "anthropicExtraUsage": false
   },
   "packages": [
-    "pi-skills",
-    "npm:@a5c-ai/babysitter-pi",
     "npm:context-mode",
+    "npm:@a5c-ai/babysitter-pi",
     "npm:@plannotator/pi-extension",
+    "npm:@samfp/pi-memory",
     "npm:pi-lens",
     "npm:pi-powerline-footer",
-    "npm:@samfp/pi-memory",
     "npm:pi-prompt-template-model"
-  ]
+  ],
+  "showHardwareCursor": true,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "quietStartup": true,
+  "theme": "dark"
 }

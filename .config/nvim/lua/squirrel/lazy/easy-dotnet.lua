@@ -24,6 +24,9 @@ return {
         analyzer_assemblies = {}, -- Any additional roslyn analyzers you might use like SonarAnalyzer.CSharp
         config = {},
       },
+      projx_lsp = {
+        enabled = true,
+      },
       debugger = {
         -- Path to custom coreclr DAP adapter
         -- easy-dotnet-server falls back to its own netcoredbg binary if bin_path is nil
@@ -135,7 +138,7 @@ return {
         handler = false,
       },
       diagnostics = {
-        default_severity = "error",
+        default_severity = "warning",
         setqflist = false,
       },
     })
