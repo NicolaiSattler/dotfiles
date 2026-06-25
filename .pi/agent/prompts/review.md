@@ -1,6 +1,5 @@
 ---
 description: review git feature
-model: claude-sonnet-4.8
 ---
 # Code Review: Feature Branch vs Main
 

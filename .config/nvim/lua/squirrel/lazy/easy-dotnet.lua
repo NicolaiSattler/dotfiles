@@ -22,6 +22,13 @@ return {
         auto_refresh_codelens = false,
         set_fold_expr = false,
         analyzer_assemblies = {}, -- Any additional roslyn analyzers you might use like SonarAnalyzer.CSharp
+        razor = {
+          enabled = true,
+          html = {
+            enabled = true,
+            request_timeout = 5000,
+          },
+        },
         config = {},
       },
       projx_lsp = {
@@ -30,6 +37,7 @@ return {
       debugger = {
         -- Path to custom coreclr DAP adapter
         -- easy-dotnet-server falls back to its own netcoredbg binary if bin_path is nil
+        engine = "netcoredbg",
         bin_path = nil,
         console = "integratedTerminal", -- Controls where the target app runs: "integratedTerminal" (Neovim buffer) or "externalTerminal" (OS window)
         apply_value_converters = true,

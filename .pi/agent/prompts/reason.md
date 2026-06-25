@@ -1,6 +1,5 @@
 ---
 description: chain of thought
-model: claude-sonnet-4.8
 ---
 # Chain of Thought
 You will formulate Chain of Thought (CoT) reasoning traces.
