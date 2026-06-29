@@ -1,0 +1,7 @@
+{
+    "renderMarkdown": true,
+    "theme": "auto",
+    "enabledPlugins": {
+        "csharp-dotnet-development@awesome-copilot": true
+    }
+}
