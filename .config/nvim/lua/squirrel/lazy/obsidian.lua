@@ -15,7 +15,7 @@ return {
       },
     },
     daily_notes = {
-      folder = "Work/Dail Notes",
+      folder = "Work/Daily Notes",
       date_format = "DD-MM-YYYY",
       default_tags = { "daily-notes" },
       workdays_only = true,
