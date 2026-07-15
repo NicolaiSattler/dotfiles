@@ -3,7 +3,7 @@ return {
   lazy = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
+    "ibhagwan/fzf-lua",
   },
   config = function()
     local dotnet = require("easy-dotnet")
@@ -140,7 +140,7 @@ return {
       -- if no picker is specified, the plugin will determine
       -- the available one automatically with this priority:
       -- telescope -> fzf -> snacks ->  basic
-      picker = "telescope",
+      picker = "fzf",
       background_scanning = true,
       notifications = {
         handler = false,
