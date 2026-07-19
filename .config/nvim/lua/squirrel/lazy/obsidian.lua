@@ -6,7 +6,7 @@ return {
   opts = {
     legacy_commands = false,
     sync = {
-      enabled = true,
+      enabled = false,
     },
     workspaces = {
       {

@@ -44,17 +44,42 @@ vim.opt.guicursor =
 
 vim.opt.swapfile = false
 
---clipboard
-vim.api.nvim_create_autocmd({ "FocusGained" }, {
-  pattern = { "*" },
-  command = [[call setreg("@", getreg("+"))]],
-})
+local function has_clipboard_provider()
+  local executables = {
+    "clipboard.exe",
+    "win32yank.exe",
+    "pbcopy",
+    "wl-copy",
+    "xclip",
+    "xsel",
+    "clip.exe",
+  }
 
--- sync with system clipboard on focus
-vim.api.nvim_create_autocmd({ "FocusLost" }, {
-  pattern = { "*" },
-  command = [[call setreg("+", getreg("@"))]],
-})
+  for _, executable in ipairs(executables) do
+    if vim.fn.executable(executable) == 1 then
+      return true
+    end
+  end
+
+  return false
+end
+
+if has_clipboard_provider() then
+  vim.api.nvim_create_autocmd({ "FocusGained" }, {
+    pattern = { "*" },
+    callback = function()
+      vim.fn.setreg('"', vim.fn.getreg("+"))
+    end,
+  })
+
+  vim.api.nvim_create_autocmd({ "FocusLost" }, {
+    pattern = { "*" },
+    callback = function()
+      vim.fn.setreg("+", vim.fn.getreg('"'))
+    end,
+  })
+end
+
 vim.opt.clipboard = ""
 
 -- Keep signcolumn on by default
