@@ -48,7 +48,7 @@ return {
       fzf.live_grep({ rg_opts = "--column -n --no-heading --color=always -j1" })
     end, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
-    vim.keymap.set("n", "<leader>r", fzf.registers, { desc = "Show [r]egisters", noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>R", fzf.registers, { desc = "Show [r]egisters", noremap = true, silent = true })
     vim.keymap.set("n", "<leader>ss", fzf.lsp_live_workspace_symbols, { desc = "[S]earch [S]ymbols" })
   end,
 }
