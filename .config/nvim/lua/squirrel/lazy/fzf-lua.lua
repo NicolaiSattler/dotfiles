@@ -3,6 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local fzf = require("fzf-lua")
+    local actions = require("fzf-lua.actions")
 
     fzf.setup({
       winopts = {
@@ -13,6 +14,16 @@ return {
       },
       defaults = {
         formatter = "path.filename_first",
+      },
+      keymap = {
+        fzf = {
+          ["ctrl-q"] = "select-all+accept",
+        },
+      },
+      actions = {
+        files = {
+          ["enter"] = actions.file_edit_or_qf,
+        },
       },
       fzf_opts = {
         ["--cycle"] = true,
