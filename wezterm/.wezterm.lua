@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 local config = {}
 
 if wezterm.config_builder then
@@ -56,5 +57,10 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+
+wezterm.on("gui-startup", function(cmd)
+	local _, _, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+end)
 
 return config
