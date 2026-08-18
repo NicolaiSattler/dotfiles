@@ -10,8 +10,12 @@ return {
     },
     workspaces = {
       {
-        name = "default",
+        name = "work",
         path = "/mnt/d/iCloudDrive/iCloud~md~obsidian/Vault",
+      },
+      {
+        name = "home",
+        path = "/Users/nieksa/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault",
       },
     },
     daily_notes = {
