@@ -10,7 +10,12 @@ return {
         height = 0.4,
         width = 1.0,
         row = 1.0,
-        preview = { hidden = "hidden" },
+        preview = {
+          bat = {
+            cmd = "bat",
+            args = "--color=always --style=numbers,changes",
+          },
+        },
       },
       defaults = {
         formatter = "path.filename_first",
