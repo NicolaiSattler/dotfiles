@@ -11,6 +11,8 @@ export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 export ASPNETCORE_ENVIRONMENT=Development
 export ENV="test"                                       #required by playwright
 
+# Deduplicate PATH
+typeset -U PATH path
 export PATH="$HOME/.local/bin:$DOTNET_ROOT:$HOME/.aspire/bin:$HOME/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH"
 
 export LANG=en_US.UTF-8
