@@ -76,6 +76,18 @@
           "commandIdentifiers": [
             "find"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python3"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git checkout"
+          ]
         }
       ]
     },
@@ -392,6 +404,18 @@
           "kind": "commands",
           "commandIdentifiers": [
             "git -C"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "stow"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "sha256sum"
           ]
         }
       ]

@@ -10,9 +10,12 @@ _Make sure to have [brew](https://docs.brew.sh) installed as package manager._
 ## Initialization
 ```bash
 cd dotfiles
-stow .
+stow --restow .
 ```
 > `stow` will create a symlink in the root folder.
+
+Copilot configuration under `.copilot` is managed by Stow, while Copilot
+runtime files such as session state and logs remain local.
 
 # Requirements
 ## Nerd Font
