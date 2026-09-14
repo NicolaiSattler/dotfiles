@@ -62,7 +62,7 @@ is_allowlisted() {
   for entry in "${ALLOWLIST[@]}"; do
     entry=$(printf '%s' "$entry" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
     [[ -z "$entry" ]] && continue
-    if [[ "$pkg" == "$entry" ]]; then
+    if [[ "$pkg" == "$entry" || "$pkg" == "$entry@"* ]]; then
       return 0
     fi
   done
@@ -90,6 +90,37 @@ is_blocked_license() {
 # Phase 1: Detect new dependencies per ecosystem
 # ---------------------------------------------------------------------------
 NEW_DEPS=()
+
+# NuGet — Central Package Management
+while IFS= read -r line; do
+  pkg=$(printf '%s' "$line" | sed -n 's/^+[[:space:]]*<PackageVersion[[:space:]][^>]*Include="\([^"]*\)"[^>]*Version="\([^"]*\)".*/\1@\2/p')
+  if [[ -z "$pkg" ]]; then
+    pkg=$(printf '%s' "$line" | sed -n 's/^+[[:space:]]*<PackageVersion[[:space:]][^>]*Update="\([^"]*\)"[^>]*Version="\([^"]*\)".*/\1@\2/p')
+  fi
+  if [[ -n "$pkg" ]]; then
+    NEW_DEPS+=("nuget:$pkg")
+  fi
+done < <(git diff HEAD -- 'Directory.Packages.props' '**/Directory.Packages.props' 2>/dev/null | grep '^+' | grep -v '^+++' || true)
+
+# NuGet — direct PackageReference entries in project files
+while IFS= read -r line; do
+  pkg=$(printf '%s' "$line" | sed -n 's/^+[[:space:]]*<PackageReference[[:space:]][^>]*Include="\([^"]*\)"[^>]*Version="\([^"]*\)".*/\1@\2/p')
+  if [[ -z "$pkg" ]]; then
+    pkg=$(printf '%s' "$line" | sed -n 's/^+[[:space:]]*<PackageReference[[:space:]][^>]*Update="\([^"]*\)"[^>]*Version="\([^"]*\)".*/\1@\2/p')
+  fi
+  if [[ -z "$pkg" ]]; then
+    package_id=$(printf '%s' "$line" | sed -n 's/^+[[:space:]]*<PackageReference[[:space:]][^>]*Include="\([^"]*\)".*/\1/p')
+    if [[ -z "$package_id" ]]; then
+      package_id=$(printf '%s' "$line" | sed -n 's/^+[[:space:]]*<PackageReference[[:space:]][^>]*Update="\([^"]*\)".*/\1/p')
+    fi
+    if [[ -n "$package_id" ]]; then
+      pkg="$package_id@UNKNOWN"
+    fi
+  fi
+  if [[ -n "$pkg" ]]; then
+    NEW_DEPS+=("nuget:$pkg")
+  fi
+done < <(git diff HEAD -- '*.csproj' '**/*.csproj' 2>/dev/null | grep '^+' | grep -v '^+++' || true)
 
 # npm / yarn / pnpm — package.json
 if git diff HEAD -- package.json &>/dev/null; then
@@ -252,6 +283,33 @@ get_license() {
       if command -v cargo &>/dev/null; then
         if command -v jq &>/dev/null; then
           license=$(timeout 5 cargo metadata --format-version 1 2>/dev/null | jq -r ".packages[] | select(.name == \"$pkg\") | .license // \"UNKNOWN\"" 2>/dev/null | head -1 || echo "UNKNOWN")
+        fi
+      fi
+      ;;
+    nuget)
+      local package_id="$pkg"
+      local package_version="UNKNOWN"
+      if [[ "$pkg" == *@* ]]; then
+        package_id="${pkg%@*}"
+        package_version="${pkg##*@}"
+      fi
+
+      if [[ "$package_id" == BKR.CKI.* ]]; then
+        license="INTERNAL"
+      elif command -v curl &>/dev/null && command -v jq &>/dev/null; then
+        local package_id_lower
+        package_id_lower=$(printf '%s' "$package_id" | tr '[:upper:]' '[:lower:]')
+        local registration_url="https://api.nuget.org/v3/registration5-semver1/$package_id_lower/index.json"
+
+        if [[ "$package_version" != "UNKNOWN" ]]; then
+          license=$(timeout 10 curl -fsSL "$registration_url" 2>/dev/null \
+            | jq -r --arg version "$package_version" '
+                [.. | objects | select(.catalogEntry? and (.catalogEntry.version | ascii_downcase) == ($version | ascii_downcase)) | .catalogEntry][0]
+                | .licenseExpression // .licenseUrl // "UNKNOWN"
+              ' 2>/dev/null || echo "UNKNOWN")
+        else
+          license=$(timeout 10 curl -fsSL "$registration_url" 2>/dev/null \
+            | jq -r '[.. | objects | select(.catalogEntry?) | .catalogEntry][0] | .licenseExpression // .licenseUrl // "UNKNOWN"' 2>/dev/null || echo "UNKNOWN")
         fi
       fi
       ;;

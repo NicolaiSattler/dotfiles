@@ -4,10 +4,10 @@
         "sessionEnd": [
             {
                 "type": "command",
-                "bash": ".github/hooks/secrets-scanner/scan-secrets.sh",
+                "bash": "/home/nieksa/.copilot/hooks/secrets-scanner/scan-secrets.sh",
                 "cwd": ".",
                 "env": {
-                    "SCAN_MODE": "warn",
+                    "SCAN_MODE": "block",
                     "SCAN_SCOPE": "diff"
                 },
                 "timeoutSec": 30

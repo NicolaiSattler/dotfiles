@@ -7,6 +7,14 @@ description: 'Get best practices for MSTest 3.x/4.x unit testing, including mode
 
 Your goal is to help me write effective unit tests with modern MSTest, using current APIs and best practices.
 
+## Repository Preferences
+
+- Follow the repository's existing assertion and mocking libraries before introducing alternatives.
+- In BKR/CKI repositories, prefer Shouldly assertions (`actual.ShouldBe(expected)`) and NSubstitute mocks (`Substitute.For<T>()`) when those packages are already used.
+- Use AutoFixture for test data when the target test project already uses it.
+- Use Reqnroll only for specification/BDD tests; do not convert focused unit tests into feature files.
+- Preserve Dutch domain naming in test method names, variables, and test data when the production code uses Dutch domain concepts.
+
 ## Project Setup
 
 - Use a separate test project with naming convention `[ProjectName].Tests`

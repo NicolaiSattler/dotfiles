@@ -82,6 +82,35 @@ FINDING_COUNT=0
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/scan.log"
 
+if command -v gitleaks &>/dev/null; then
+  echo "🔍 Running Gitleaks secret scan..."
+  set +e
+  if [[ "$SCOPE" == "staged" ]]; then
+    gitleaks protect --staged --redact
+  else
+    gitleaks detect --source . --redact
+  fi
+  GITLEAKS_EXIT_CODE=$?
+  set -e
+
+  if [[ $GITLEAKS_EXIT_CODE -eq 0 ]]; then
+    printf '{"timestamp":"%s","event":"gitleaks_scan_complete","mode":"%s","scope":"%s","status":"clean"}\n' \
+      "$TIMESTAMP" "$MODE" "$SCOPE" >> "$LOG_FILE"
+    exit 0
+  fi
+
+  printf '{"timestamp":"%s","event":"gitleaks_secrets_found","mode":"%s","scope":"%s","status":"findings","exit_code":%d}\n' \
+    "$TIMESTAMP" "$MODE" "$SCOPE" "$GITLEAKS_EXIT_CODE" >> "$LOG_FILE"
+
+  if [[ "$MODE" == "block" ]]; then
+    echo "🚫 Session blocked: Gitleaks found potential secrets."
+    exit "$GITLEAKS_EXIT_CODE"
+  fi
+
+  echo "💡 Gitleaks found potential secrets. Continuing because SCAN_MODE=$MODE."
+  exit 0
+fi
+
 # Collect files to scan based on scope
 FILES=()
 if [[ "$SCOPE" == "staged" ]]; then
