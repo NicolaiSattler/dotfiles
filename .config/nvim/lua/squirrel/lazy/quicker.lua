@@ -24,10 +24,19 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>q", function()
+    vim.keymap.set("n", "<leader>qq", function()
       require("quicker").toggle()
     end, {
       desc = "Toggle quickfix",
+    })
+    vim.keymap.set("n", "<leader>qd", function()
+      if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+        require("quicker").toggle()
+      else
+        vim.diagnostic.setqflist({ open = true })
+      end
+    end, {
+      desc = "Toggle project diagnostics",
     })
     vim.keymap.set("n", "<leader>l", function()
       require("quicker").toggle({ loclist = true })
