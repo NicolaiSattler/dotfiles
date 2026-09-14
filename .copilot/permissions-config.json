@@ -1,0 +1,400 @@
+{
+  "locations": {
+    "/home/nieksa/source/BKR.CKI.Raadplegen": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "xargs"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "ilspycmd"
+          ]
+        },
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet test"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet format"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "./src/Raadplegen.Services.Tests/bin/Debug/net10.0/BKR.CKI.Communicatie.Raadplegen.Services.Tests"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az account show"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az bicep build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az deployment group what-if"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az containerapp show"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az containerapp revision list"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "find"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/BKR.CKI.Facturatie": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "ilspycmd"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet test"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet format"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git -C"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/dotfiles": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python3"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/BKR.CKI.Notificaties": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "npm install"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "npm cache"
+          ]
+        },
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet test"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet format"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/CKI3": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet --version"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "timeout"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "~/.nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.exe"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dpkg"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/BKR.CKI.Communicatie.Beschikkingen": {
+      "tool_approvals": [
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet test"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet format"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "printf"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "od"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/BKR.CKI.Communicatie.Overeenkomsten": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "xargs"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet test"
+          ]
+        },
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet format"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "printf",
+            "git check-attr"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet clean"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet run"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git log"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet tool"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/CKI3_Tooling": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az account show"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az bicep build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az deployment group what-if"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az deployment sub what-if"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az containerapp show"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az containerapp revision list"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az monitor app-insights query"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "chmod",
+            "timeout"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/.copilot": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "sed"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "command"
+          ]
+        },
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "mkdir"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "jq",
+            "bash"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "/home/nieksa/.copilot/hooks/secrets-scanner/scan-secrets.sh"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "printf"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git -C"
+          ]
+        }
+      ]
+    }
+  }
+}

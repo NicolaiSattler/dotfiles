@@ -15,6 +15,17 @@
       "type": "http",
       "url": "https://learn.microsoft.com/api/mcp",
       "tools": ["*"]
+    },
+    "aspire": {
+      "tools": [
+        "*"
+      ],
+      "type": "local",
+      "command": "aspire",
+      "args": [
+        "mcp",
+        "start"
+      ]
     }
   }
 }

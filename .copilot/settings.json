@@ -1,7 +1,18 @@
 {
-    "renderMarkdown": true,
-    "theme": "auto",
-    "enabledPlugins": {
-        "csharp-dotnet-development@awesome-copilot": true
-    }
+  "renderMarkdown": true,
+  "screenReader": false,
+  "theme": "github",
+  "model": "auto",
+  "allowedUrls": [
+    "https://docs.github.com",
+    "https://learn.microsoft.com",
+    "https://github.com",
+    "https://dev.azure.com",
+    "https://azure.microsoft.com",
+    "https://www.nuget.org",
+    "https://api.nuget.org",
+    "https://aspire.dev"
+  ],
+  "experimental": true,
+  "planModel": "auto"
 }
