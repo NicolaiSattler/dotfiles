@@ -1,0 +1,6 @@
+[wsl2]
+nestedVirtualization=false
+networkingMode=mirrored
+dnsTunneling=true
+autoProxy=true
+defaultVhdSize=200GB

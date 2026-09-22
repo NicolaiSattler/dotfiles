@@ -45,3 +45,12 @@ vim.api.nvim_set_keymap('n', '<leader>bc', ':bd|e#|bd#<CR>', { noremap = true, s
 
 vim.api.nvim_set_keymap("n", "<leader>-", ":vertical resize -10<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader>+", ":vertical resize +10<CR>", {noremap=true})
+
+vim.keymap.set("n", "<leader>on", "<cmd>Obsidian new<CR>", { desc = "[o]bsidian [n]ew note" })
+vim.keymap.set("n", "<leader>od", "<cmd>Obsidian today<CR>", { desc = "[o]bsidian [d]aily note" })
+vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian new_from_template<CR>", { desc = "[o]bsidian new from [t]emplate" })
+vim.keymap.set("n", "<leader>os", "<cmd>Obsidian search<CR>", { desc = "[o]bsidian [s]earch" })
+vim.keymap.set("n", "<leader>oq", "<cmd>Obsidian quick_switch<CR>", { desc = "[o]bsidian [q]uick switch" })
+vim.keymap.set("n", "<leader>ob", "<cmd>Obsidian backlinks<CR>", { desc = "[o]bsidian [b]acklinks" })
+vim.keymap.set("n", "<leader>og", "<cmd>Obsidian tags<CR>", { desc = "[o]bsidian ta[g]s" })
+vim.keymap.set("n", "<leader>of", "<cmd>Obsidian follow_link<CR>", { desc = "[o]bsidian [f]ollow link" })
