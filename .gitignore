@@ -10,6 +10,7 @@ SpecFlow*
 .zcompdump*
 .DS_Store
 *lock.json
+.gitconfig
 
 #Folders
 Library/
@@ -37,3 +38,5 @@ zed/
 .config/gh/hosts.yml
 /.pi-lens/**
 /.pi/agent/skills/.pi-lens/cache
+/.copilot
+/logs

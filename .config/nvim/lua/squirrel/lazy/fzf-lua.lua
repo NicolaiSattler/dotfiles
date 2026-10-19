@@ -66,5 +66,6 @@ return {
     vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
     vim.keymap.set("n", "<leader>R", fzf.registers, { desc = "Show [r]egisters", noremap = true, silent = true })
     vim.keymap.set("n", "<leader>ss", fzf.lsp_live_workspace_symbols, { desc = "[S]earch [S]ymbols" })
+    vim.keymap.set("n", "<leader>sds", fzf.lsp_document_symbols, { desc = "[S]earch [D]ocument [S]ymbols" })
   end,
 }

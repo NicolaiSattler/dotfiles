@@ -1,22 +1,6 @@
-export DOTNET_ROOT=$HOME/.dotnet
-export GITHUB_HOST=stichting-bkr.ghe.com
-export SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs
-export EZA_CONFIG="$HOME/.config/eza/"
 export ZSH="$HOME/.oh-my-zsh"                           # Path to your oh-my-zsh installation.
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"       # colorize man with bat.
-
-export ASPIRE_CLI_TELEMETRY_OPTOUT=1
-export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
-export ASPNETCORE_ENVIRONMENT=Development
-export ENV="test"                                       #required by playwright
-
-# Deduplicate PATH
-typeset -U PATH path
-export PATH="$HOME/.local/bin:$DOTNET_ROOT:$HOME/.aspire/bin:$HOME/.dotnet/tools:/.cargo/bin:/Applications/netcoredbg:/home/linuxbrew/.linuxbrew/bin:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin/netcoredbg/netcoredbg:$PATH"
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 bindkey -v                                              # enable vi mode
 bindkey jj vi-cmd-mode
@@ -26,7 +10,9 @@ plugins=(git vi-mode)
 
 # https://github.com/zsh-users/zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.cargo/env
+if [[ -f "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
 
 
 function gitcleanup() {

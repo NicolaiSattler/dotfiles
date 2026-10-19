@@ -1,130 +1,5 @@
 {
   "locations": {
-    "/home/nieksa/source/BKR.CKI.Raadplegen": {
-      "tool_approvals": [
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "xargs"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "ilspycmd"
-          ]
-        },
-        {
-          "kind": "write"
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet test"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet build"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet format"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "./src/Raadplegen.Services.Tests/bin/Debug/net10.0/BKR.CKI.Communicatie.Raadplegen.Services.Tests"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az account show"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az bicep build"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az deployment group what-if"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az containerapp show"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az containerapp revision list"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "find"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "python3"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "git checkout"
-          ]
-        }
-      ]
-    },
-    "/home/nieksa/source/BKR.CKI.Facturatie": {
-      "tool_approvals": [
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "ilspycmd"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet build"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet test"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet format"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "git -C"
-          ]
-        }
-      ]
-    },
     "/home/nieksa/dotfiles": {
       "tool_approvals": [
         {
@@ -138,222 +13,29 @@
           "commandIdentifiers": [
             "python3"
           ]
-        }
-      ]
-    },
-    "/home/nieksa/source/BKR.CKI.Notificaties": {
-      "tool_approvals": [
+        },
         {
           "kind": "commands",
           "commandIdentifiers": [
-            "npm install"
+            "command"
           ]
         },
         {
           "kind": "commands",
           "commandIdentifiers": [
-            "npm cache"
-          ]
-        },
-        {
-          "kind": "write"
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet build"
+            "nvim"
           ]
         },
         {
           "kind": "commands",
           "commandIdentifiers": [
-            "dotnet test"
+            "git check-ignore"
           ]
         },
         {
           "kind": "commands",
           "commandIdentifiers": [
-            "dotnet format"
-          ]
-        }
-      ]
-    },
-    "/home/nieksa/source/CKI3": {
-      "tool_approvals": [
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet --version"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "timeout"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "~/.nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.exe"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dpkg"
-          ]
-        }
-      ]
-    },
-    "/home/nieksa/source/BKR.CKI.Communicatie.Beschikkingen": {
-      "tool_approvals": [
-        {
-          "kind": "write"
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet test"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet build"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet format"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "printf"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "od"
-          ]
-        }
-      ]
-    },
-    "/home/nieksa/source/BKR.CKI.Communicatie.Overeenkomsten": {
-      "tool_approvals": [
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "xargs"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet test"
-          ]
-        },
-        {
-          "kind": "write"
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet build"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet format"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "printf",
-            "git check-attr"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet clean"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet run"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "git log"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "dotnet tool"
-          ]
-        }
-      ]
-    },
-    "/home/nieksa/source/CKI3_Tooling": {
-      "tool_approvals": [
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az account show"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az bicep build"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az deployment group what-if"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az deployment sub what-if"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az containerapp show"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az containerapp revision list"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "az monitor app-insights query"
-          ]
-        },
-        {
-          "kind": "commands",
-          "commandIdentifiers": [
-            "chmod",
-            "timeout"
+            "git rm"
           ]
         }
       ]
@@ -416,6 +98,337 @@
           "kind": "commands",
           "commandIdentifiers": [
             "sha256sum"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "kill"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "printf",
+            "command",
+            "ip"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git --version"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "apt-cache",
+            "dpkg",
+            "git config"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "curl",
+            "sudo",
+            "rm",
+            "git-credential-manager"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "brew"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/Facturatie": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "command",
+            "docker",
+            "aspire",
+            "dotnet --version"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "printf",
+            "getent",
+            "sudo"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "sg"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "wsl.exe"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet dev-certs"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git check-ignore"
+          ]
+        },
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "firefox"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "xdg-open"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "ss"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "curl"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git credential-manager",
+            "git config",
+            "timeout"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet user-secrets"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet --info"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet test"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git fsck"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git reflog"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git stash"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet msbuild"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "fc-match",
+            "fc-list",
+            "apt-cache"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "mkdir",
+            "apt-get",
+            "dpkg-deb"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "rm"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "nvim"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "env",
+            "sed"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "klist"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "jq"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python3"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "az"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa": {
+      "tool_approvals": [
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "curl"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "curl.exe"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "printf",
+            "dotnet --list-sdks",
+            "aspire"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet build"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "find",
+            "docker",
+            "podman"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "ip"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet nuget"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet restore"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/Docker/MicrosoftSqlServer": {
+      "tool_approvals": [
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "docker"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/vault": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "nvim"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git log"
+          ]
+        },
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git check-ignore"
           ]
         }
       ]

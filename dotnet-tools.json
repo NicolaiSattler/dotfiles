@@ -14,12 +14,6 @@
                 "dotnet-outdated-tool"
             ]
         },
-        "dotnet-repl": {
-            "version": "0.1.126",
-            "commands": [
-                "dotnet-repl"
-            ]
-        },
         "dotnet-format": {
             "version": "5.1.250801",
             "commands": [

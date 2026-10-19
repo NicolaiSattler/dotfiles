@@ -5,7 +5,7 @@ return {
   opts = {},
   config = function()
     require("copilot").setup({
-      auth_provider_url = "https://stichting-bkr.ghe.com",
+      -- auth_provider_url = "https://example.ghe.com",
       suggestion = {
         enabled = false,
         debounce = 15,
@@ -21,7 +21,7 @@ return {
       },
       panel = { enabled = false },
     })
-    
+
     -- Enable Copilot LSP for Neovim 0.11+
     vim.lsp.enable("copilot")
   end,

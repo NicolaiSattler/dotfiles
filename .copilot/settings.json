@@ -11,7 +11,15 @@
     "https://azure.microsoft.com",
     "https://www.nuget.org",
     "https://api.nuget.org",
-    "https://aspire.dev"
+    "https://aspire.dev",
+    "https://api.github.com",
+    "https://www.google.com",
+    "https://consent.google.com",
+    "https://www.bing.com",
+    "https://html.duckduckgo.com",
+    "https://search.brave.com",
+    "https://community.cyberark.com",
+    "https://docs.cyberark.com"
   ],
   "experimental": true,
   "planModel": "auto"

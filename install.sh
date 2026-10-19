@@ -84,13 +84,6 @@ install_dotnet() {
     --no-path
 }
 
-restore_dotnet_tools() {
-  log "Restoring local .NET tools"
-  export DOTNET_ROOT="$DOTNET_DIR"
-  export PATH="$DOTNET_DIR:$DOTNET_DIR/tools:$PATH"
-  dotnet tool restore --tool-manifest "$REPO_DIR/dotnet-tools.json"
-}
-
 install_oh_my_zsh() {
   [[ -d "$HOME/.oh-my-zsh" ]] && return 0
 
@@ -110,28 +103,7 @@ install_tpm() {
 link_dotfiles() {
   log "Linking dotfiles with GNU Stow"
   cd "$REPO_DIR"
-  stow --restow .
-}
-
-install_wsl_config() {
-  is_wsl || return 0
-
-  local windows_profile
-  windows_profile="$(cmd.exe /C 'echo %USERPROFILE%' 2>/dev/null | tr -d '\r')" ||
-    die "Unable to determine the Windows user profile"
-  [[ -n "$windows_profile" ]] || die "Windows user profile path is empty"
-
-  windows_profile="$(wslpath "$windows_profile")" ||
-    die "Unable to convert the Windows user profile path"
-
-  local target="$windows_profile/.wslconfig"
-  if cmp -s "$REPO_DIR/wsl/.wslconfig" "$target" 2>/dev/null; then
-    log "WSL configuration is already up to date"
-    return 0
-  fi
-
-  log "Installing WSL configuration to $target"
-  install -m 0644 "$REPO_DIR/wsl/.wslconfig" "$target"
+  stow --restow --adopt .
 }
 
 sync_neovim() {
@@ -148,10 +120,8 @@ main() {
   install_homebrew
   install_brew_bundle
   install_dotnet
-  restore_dotnet_tools
   install_oh_my_zsh
   install_tpm
-  install_wsl_config
   link_dotfiles
   sync_neovim
 

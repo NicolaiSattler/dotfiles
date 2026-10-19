@@ -41,7 +41,8 @@ return {
     workspaces = {
       {
         name = "work",
-        path = "/mnt/d/iCloudDrive/iCloud~md~obsidian/Zettelkast",
+        path = "~/source/vault/Zettelkast/",
+        strict = true,
       },
       {
         name = "home",
@@ -76,6 +77,7 @@ return {
     daily_notes = {
       folder = "40 Journal/Daily",
       date_format = "YY-MM-DD",
+      template = "Daily Note.md",
       default_tags = { "daily-notes" },
       workdays_only = true,
     },

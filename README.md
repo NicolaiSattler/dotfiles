@@ -40,6 +40,14 @@ kept in this repository so it can be reproduced on a new machine.
 | `wsl/.wslconfig` | Windows-hosted WSL2 settings |
 | `install.sh` | Cross-platform bootstrap script |
 
+The Bash fzf integration requires fzf 0.48.0 or newer on `PATH` and loads
+completion and key bindings only in interactive shells. Cargo's environment
+is loaded only when `$HOME/.cargo/env` exists; Rust is optional.
+
+Zsh selects `en_US.UTF-8` when installed, otherwise `C.UTF-8`. If neither
+is available, it warns and uses `C`. It leaves `LC_ALL` unset so individual
+locale categories can be configured without a global override.
+
 ## Installation
 
 ### WSL2 / Ubuntu
@@ -97,8 +105,17 @@ Install Oh My Zsh if it is not already present:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-chsh -s "$(command -v zsh)"
 ```
+
+The bootstrap deliberately skips changing your login shell. To start Zsh
+automatically in WSL, select the system Zsh listed in `/etc/shells`:
+
+```bash
+sudo chsh -s /bin/zsh "$USER"
+```
+
+Close and reopen your WSL terminal afterward. Use `exec zsh` to switch the
+current terminal immediately.
 
 Link the configuration and synchronize Neovim plugins:
 
