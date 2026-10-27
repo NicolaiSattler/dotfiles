@@ -22,7 +22,7 @@ return {
       },
       grep = {
         hidden = true,
-        rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --glob '!.git' -e",
+        rg_opts = "--column --line-number --no-heading --color=always --ignore-case --max-columns=4096 --glob '!.git' -e",
       },
       keymap = {
         fzf = {
@@ -36,6 +36,7 @@ return {
       },
       fzf_opts = {
         ["--cycle"] = true,
+        ["--ignore-case"] = true,
       },
     })
 
@@ -65,7 +66,7 @@ return {
     vim.keymap.set("n", "<leader>sh", fzf.help_tags, { desc = "[S]earch [H]elp" })
     vim.keymap.set("n", "<leader>sw", fzf.grep_cword, { desc = "[S]earch current [W]ord" })
     vim.keymap.set("n", "<leader>sg", function()
-      fzf.live_grep({ rg_opts = "--column -n --no-heading --color=always -j1 --glob '!.git'" })
+      fzf.live_grep({ rg_opts = "--column -n --no-heading --color=always --ignore-case -j1 --glob '!.git'" })
     end, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
     vim.keymap.set("n", "<leader>R", fzf.registers, { desc = "Show [r]egisters", noremap = true, silent = true })

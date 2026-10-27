@@ -37,6 +37,18 @@
           "commandIdentifiers": [
             "git rm"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "docker"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "systemctl"
+          ]
         }
       ]
     },
@@ -333,6 +345,42 @@
           "commandIdentifiers": [
             "az"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git merge-base"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet --list-sdks"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet format"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git fetch"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git rev-list"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git log"
+          ]
         }
       ]
     },
@@ -429,6 +477,50 @@
           "kind": "commands",
           "commandIdentifiers": [
             "git check-ignore"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "luac"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "node"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git stash",
+            "git pull"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/FenI.CopilotSkills": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "command"
+          ]
+        },
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "printf"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python3"
           ]
         }
       ]

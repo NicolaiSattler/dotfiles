@@ -19,7 +19,9 @@
     "https://html.duckduckgo.com",
     "https://search.brave.com",
     "https://community.cyberark.com",
-    "https://docs.cyberark.com"
+    "https://docs.cyberark.com",
+    "https://docs.reqnroll.net",
+    "https://dbeaver.com"
   ],
   "experimental": true,
   "planModel": "auto"

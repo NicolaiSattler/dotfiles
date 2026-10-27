@@ -2,6 +2,14 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.filetype.add({
+  extension = {
+    cshtml = "razor",
+    razor = "razor",
+    xaml = "xml",
+  },
+})
+
 vim.opt.guicursor = ""
 
 vim.o.cursorline = true
