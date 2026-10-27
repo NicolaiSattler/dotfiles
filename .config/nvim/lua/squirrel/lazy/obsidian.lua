@@ -46,7 +46,7 @@ return {
       },
       {
         name = "home",
-        path = "/Users/nieksa/Library/Mobile Documents/iCloud~md~obsidian/Documents/Zettelkast",
+        path = "/Users/nieksa/Documents/Source/vault",
       },
     },
     templates = {
@@ -66,6 +66,10 @@ return {
         },
         ["Project Note"] = {
           notes_subdir = "50 Projects/Work",
+          note_id_func = note_id(),
+        },
+        ["Project Idea Note"] = {
+          notes_subdir = "50 Projects",
           note_id_func = note_id(),
         },
         ["Source Note"] = {

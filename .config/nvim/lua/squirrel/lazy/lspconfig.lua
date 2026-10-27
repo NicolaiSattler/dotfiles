@@ -128,6 +128,9 @@ return {
       cssls = {},
       html = {},
       jsonls = {},
+      harper_ls = {
+        filetypes = { "markdown", "gitcommit", "text", "norg", "org", "mdx" },
+      },
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})
