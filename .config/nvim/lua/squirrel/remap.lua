@@ -1,32 +1,38 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set("i", "jk", "<Esc>")
 
-vim.keymap.set('n', 'Y', 'Vy')
+vim.keymap.set("n", "Y", "Vy")
 
 --quickfixlist
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>q", function()
+  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+    require("quicker").toggle()
+  else
+    vim.diagnostic.setqflist({ open = true })
+  end
+end, { desc = "Toggle diagnostic quickfix list" })
 -- open netrw
-vim.keymap.set('n', '<leader>e', vim.cmd.Oil, { desc = "Open file [e]xplorer"})
+vim.keymap.set("n", "<leader>e", vim.cmd.Oil, { desc = "Open file [e]xplorer" })
 -- switch buffers
-vim.keymap.set('n', '<leader>.', ":bnext<CR>", { desc = "Next buffer"})
-vim.keymap.set('n', '<leader>,', ":bprevious<CR>", { desc = "Previous Buffer"})
+vim.keymap.set("n", "<leader>.", ":bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>,", ":bprevious<CR>", { desc = "Previous Buffer" })
 -- git
-vim.keymap.set("n", "<leader>gs", ":Neogit<CR>", { desc = "[g]it [s]tatus", silent = true})
+vim.keymap.set("n", "<leader>gs", ":Neogit<CR>", { desc = "[g]it [s]tatus", silent = true })
 vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "[g]it [d]iff", silent = true })
 vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "[g]it [b]lame", silent = true })
 -- Keymaps for better default experience
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- move selected lines with J & K to a different line. <3 ThePrimeagen
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 --keep the cursor centered! <3 ThePrimeagen
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -39,12 +45,12 @@ vim.keymap.set("n", "N", "Nzzzv")
 --vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 --vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 --vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
-vim.api.nvim_set_keymap('n', '<leader>bc', ':bd|e#|bd#<CR>', { noremap = true, silent =  true})
+vim.api.nvim_set_keymap("n", "<leader>bc", ":bd|e#|bd#<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<leader>-", ":vertical resize -10<CR>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<leader>+", ":vertical resize +10<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>-", ":vertical resize -10<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>+", ":vertical resize +10<CR>", { noremap = true })
 
 vim.keymap.set("n", "<leader>on", "<cmd>Obsidian new<CR>", { desc = "[o]bsidian [n]ew note" })
 vim.keymap.set("n", "<leader>od", "<cmd>Obsidian today<CR>", { desc = "[o]bsidian [d]aily note" })

@@ -4,6 +4,12 @@ return {
   opts = {
     -- add any options here
     cli = {
+      win = {
+        layout = "right",
+        split = {
+          width = math.floor(vim.o.columns * 0.4),
+        },
+      },
       mux = {
         backend = "tmux",
         enabled = true,

@@ -19,7 +19,7 @@ return {
         preload_roslyn = true, -- Start loading roslyn before any buffer is opened
         roslynator_enabled = true, -- Automatically enable roslynator analyzer
         easy_dotnet_analyzer_enabled = true, -- Enable roslyn analyzer from easy-dotnet-server
-        auto_refresh_codelens = false,
+        auto_refresh_codelens = true,
         set_fold_expr = false,
         analyzer_assemblies = {}, -- Any additional roslyn analyzers you might use like SonarAnalyzer.CSharp
         razor = {
