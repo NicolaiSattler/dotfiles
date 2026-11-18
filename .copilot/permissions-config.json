@@ -381,6 +381,79 @@
           "commandIdentifiers": [
             "git log"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet fsi"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "cp"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git show"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git push"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "dotnet-easydotnet"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "xxd"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "sleep"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git checkout"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "awk"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "kill"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git rm"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python",
+            "node"
+          ]
         }
       ]
     },
@@ -521,6 +594,50 @@
           "kind": "commands",
           "commandIdentifiers": [
             "python3"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/contoso-copilot-advanced": {
+      "tool_approvals": [
+        {
+          "kind": "write"
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "node",
+            "copilot"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "command"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "tar"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python3"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "npm run"
           ]
         }
       ]

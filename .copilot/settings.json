@@ -1,7 +1,7 @@
 {
   "renderMarkdown": true,
   "screenReader": false,
-  "theme": "github",
+  "theme": "high-contrast",
   "model": "auto",
   "allowedUrls": [
     "https://docs.github.com",
@@ -21,8 +21,10 @@
     "https://community.cyberark.com",
     "https://docs.cyberark.com",
     "https://docs.reqnroll.net",
-    "https://dbeaver.com"
+    "https://dbeaver.com",
+    "https://raw.githubusercontent.com"
   ],
   "experimental": true,
-  "planModel": "auto"
+  "planModel": "auto",
+  "autoUpdatesChannel": "stable"
 }
