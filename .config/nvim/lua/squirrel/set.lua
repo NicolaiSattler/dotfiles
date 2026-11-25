@@ -37,7 +37,6 @@ vim.opt.expandtab = true
 
 vim.opt.breakindent = true
 vim.opt.smartindent = true
-vim.opt.wrap = false
 
 -- Set highlight on search
 vim.opt.hlsearch = false
@@ -52,43 +51,23 @@ vim.opt.guicursor =
 
 vim.opt.swapfile = false
 
-local function has_clipboard_provider()
-  local executables = {
-    "clipboard.exe",
-    "win32yank.exe",
-    "pbcopy",
-    "wl-copy",
-    "xclip",
-    "xsel",
-    "clip.exe",
+if vim.env.TMUX and vim.fn.executable("tmux") == 1 then
+  vim.g.clipboard = {
+    name = "tmux",
+    copy = {
+      ["+"] = { "tmux", "load-buffer", "-w", "-" },
+      ["*"] = { "tmux", "load-buffer", "-w", "-" },
+    },
+    -- Read the shared buffer without refreshing it from the terminal clipboard.
+    paste = {
+      ["+"] = { "tmux", "save-buffer", "-" },
+      ["*"] = { "tmux", "save-buffer", "-" },
+    },
+    cache_enabled = 0,
   }
-
-  for _, executable in ipairs(executables) do
-    if vim.fn.executable(executable) == 1 then
-      return true
-    end
-  end
-
-  return false
 end
 
-if has_clipboard_provider() then
-  vim.api.nvim_create_autocmd({ "FocusGained" }, {
-    pattern = { "*" },
-    callback = function()
-      vim.fn.setreg('"', vim.fn.getreg("+"))
-    end,
-  })
-
-  vim.api.nvim_create_autocmd({ "FocusLost" }, {
-    pattern = { "*" },
-    callback = function()
-      vim.fn.setreg("+", vim.fn.getreg('"'))
-    end,
-  })
-end
-
-vim.opt.clipboard = ""
+vim.opt.clipboard = "unnamedplus"
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
