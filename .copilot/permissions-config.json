@@ -49,6 +49,13 @@
           "commandIdentifiers": [
             "systemctl"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "git add",
+            "git commit"
+          ]
         }
       ]
     },
@@ -454,6 +461,22 @@
             "python",
             "node"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "bicep"
+          ]
+        },
+        {
+          "kind": "mcp",
+          "serverName": "microsoft-learn",
+          "toolName": "microsoft_docs_search"
+        },
+        {
+          "kind": "mcp",
+          "serverName": "microsoft-learn",
+          "toolName": "microsoft_docs_fetch"
         }
       ]
     },
@@ -570,6 +593,13 @@
             "git stash",
             "git pull"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "npm --version",
+            "command"
+          ]
         }
       ]
     },
@@ -639,6 +669,37 @@
           "commandIdentifiers": [
             "npm run"
           ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "xargs"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "npm test"
+          ]
+        }
+      ]
+    },
+    "/home/nieksa/source/FenI.Wiki": {
+      "tool_approvals": [
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python"
+          ]
+        },
+        {
+          "kind": "commands",
+          "commandIdentifiers": [
+            "python3"
+          ]
+        },
+        {
+          "kind": "write"
         }
       ]
     }

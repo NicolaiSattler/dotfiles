@@ -22,7 +22,10 @@
     "https://docs.cyberark.com",
     "https://docs.reqnroll.net",
     "https://dbeaver.com",
-    "https://raw.githubusercontent.com"
+    "https://raw.githubusercontent.com",
+    "https://www.uwv.nl",
+    "https://www.dnb.nl",
+    "https://www.afm.nl"
   ],
   "experimental": true,
   "planModel": "auto",

@@ -28,7 +28,7 @@ return {
           format = "{kind_icon}{symbol.name:Normal}",
           hl_group = "lualine_c_normal",
         })
-        table.insert(opts.sections.lualine_c, {
+        table.insert(opts.winbar.lualine_c, {
           symbols.get,
           cond = symbols.has,
         })
@@ -52,6 +52,14 @@ return {
         },
       },
       sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+      winbar = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { macro_recording, "buffers" },
@@ -75,7 +83,7 @@ return {
         lualine_z = {},
       },
       tabline = {},
-      winbar = {},
+      inactive_winbar = {},
       extensions = {
         "man",
         "lazy",
