@@ -38,5 +38,6 @@ zed/
 .config/gh/hosts.yml
 /.pi-lens/**
 /.pi/agent/skills/.pi-lens/cache
+/.copilot/permissions-config.json
 /.copilot
 /logs
